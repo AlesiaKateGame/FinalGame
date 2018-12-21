@@ -1,5 +1,6 @@
 import style from "./_scss/main.scss";
-import login from './components/login/login.html';
+import loginHtml from './components/login/loginHtml.html';
+import loginJS from './components/login/loginJS.js';
 
 
     class Game {
@@ -11,11 +12,10 @@ import login from './components/login/login.html';
 
     game_login () {
 
-        document.body.addEventListener('click', showLogin)
+        document.body.addEventListener('click', showLogin);
         function showLogin(){
             let modal = document.createElement('div');
-            modal.className = 'modal-window';
-            modal.innerHTML = login;
+            modal.innerHTML = loginHtml;
             document.body.appendChild(modal);
         }
         // - срабатывает после загрузки страницы;
@@ -100,5 +100,5 @@ import login from './components/login/login.html';
         // из localStorage построить таблицу: name level
     }
 }
-let game = new Game(login);
+let game = new Game(loginHtml);
 game.game_login();

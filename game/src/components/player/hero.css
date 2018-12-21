@@ -1,0 +1,191 @@
+.hero {
+    width: 210px;
+    height: 335px;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+}
+
+.hero_inform {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.hero_name {
+    font-size: 20px;
+    margin: 5%;
+}
+
+.hero_helth {
+   width: 310px;
+   height: 20px;
+   background-color: green;
+   color: white;
+   border-radius: 20px;
+   padding: 5px;
+   font-weight: bold;
+   transition: width 1s;
+
+}
+
+.hero.boy .hero_head {
+    background-image: url("heroes/boy/head.png");
+    width: 128%;
+    height: 99%;
+    position: absolute;
+    left: -14%;
+    top: -95%;
+    animation: head 1.8s linear infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.hero.boy .hero_body {
+    background-image: url("heroes/boy/body.png");
+    width: 90%;
+    height: 118%;
+    position: absolute;
+    left: 3%;
+    top: -97%;
+    transform-origin: 50% 50% 0;
+    animation: body 2s linear infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.hero.boy .hero_hand_right {
+    background-image: url("heroes/boy/right_hend.png");
+    width: 80%;
+    height: 92%;
+    position: absolute;
+    left: -49%;
+    top: 2%;
+    animation: right_hend 1s linear infinite;
+    transform-origin: 70% 0% 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.hero.boy .hero_hand_left {
+    background-image: url("heroes/boy/left_hend.png");
+    width: 106%;
+    height: 136%;
+    position: absolute;
+    left: 68%;
+    top: -87%;
+    transform-origin: 0% 70% 0;
+    animation: left_hend 1s linear infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.hero.boy .hero_legs {
+    background-image: url("heroes/boy/legs.png");
+    width: 47%;
+    height: 30%;
+    position: absolute;
+    left: 6%;
+    top: 65%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.hero.girl .hero_head {
+    background-image: url("heroes/girl/head.png");
+    width: 128%;
+    height: 99%;
+    position: absolute;
+    left: -48%;
+    top: -77%;
+    animation: head 1.8s linear infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.hero.girl .hero_body {
+    background-image: url("heroes/girl/body.png");
+    width: 90%;
+    height: 118%;
+    position: absolute;
+    left: 3%;
+    top: -87%;
+    transform-origin: 50% 50% 0;
+    animation: body 2s linear infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.hero.girl .hero_hand_right {
+    background-image: url("heroes/girl/right_hend.png");
+    width: 80%;
+    height: 92%;
+    position: absolute;
+    left: -23%;
+    top: 2%;
+    animation: right_hend 1s linear infinite;
+    transform-origin: 70% 0% 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.hero.girl .hero_hand_left {
+    background-image: url("heroes/girl/left_hend.png");
+    width: 106%;
+    height: 136%;
+    position: absolute;
+    left: 45%;
+    top: -50%;
+    transform-origin: 0% 45% 0;
+    animation: girl_left_hend 1s linear infinite;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.hero.girl .hero_legs {
+    background-image: url("heroes/girl/legs.png");
+    width: 47%;
+    height: 30%;
+    position: absolute;
+    left: 6%;
+    top: 65%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+@keyframes body {
+    0% {transform: rotate(-5deg);}
+    50% {transform:  rotate(5deg);}
+    100% {transform:  rotate(-5deg);}
+}
+
+@keyframes head {
+    0% {transform: translate(0) rotate(0);}
+    50% {transform: translate(0,5px) rotate(-15deg);}
+    100% {transform:  translate(0) rotate(0);}
+}
+
+@keyframes right_hend {
+    0% {transform:  rotate(0);}
+    50% {transform: rotate(10deg);}
+    100% {transform:  rotate(0);}
+}
+
+@keyframes left_hend {
+    0% {transform:  rotate(0);}
+    50% {transform: rotate(15deg);}
+    100% {transform:  rotate(0);}
+}
+
+@keyframes girl_left_hend {
+    0% {transform:  rotate(0);}
+    50% {transform: rotate(15deg);}
+    100% {transform:  rotate(0);}
+}
