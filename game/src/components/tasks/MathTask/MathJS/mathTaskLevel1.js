@@ -1,74 +1,43 @@
-import { section, input } from './commonVariables';
-import {randomSingleDigit1, randomSingleDigit2, randomMathOperationPlusMinus} from './commonVariables';
-import {correctResult, appendSection, clearSection} from './commonFunctions';
 
 
-const mathExpressionLevel1 = randomSingleDigit1 + randomMathOperationPlusMinus + randomSingleDigit2;
-    
-const correctResultLevel1 = correctResult (randomSingleDigit1, randomSingleDigit2, randomMathOperationPlusMinus);
+import * as vars from './commonVariables';
 
 
-function taskMathLevel1 () {
-    const mainSection = document.createElement('section');
-    mainSection.id = 'section';
-    mainSection.className = 'task-1Level';
+const mathExpressionLevel1 = vars.randomSingleDigit1 + vars.randomMathOperationPlusMinus + vars.randomSingleDigit2;
+        
 
-    const numberOfLevel = document.createElement('h1');
-    numberOfLevel.className = 'task-1Level__h1';
-    numberOfLevel.id = 'h1';
-    numberOfLevel.textContent = 'Уровень 1';
+export function taskMathLevel1 (level) {
+    const gameLevel = document.querySelector('#task-1Level__h1');
+    gameLevel.textContent = 'Уровень ' + level;
 
-    const titleH2 = document.createElement('h2');
-    titleH2.className = 'task-1Level__h2';
-    titleH2.id = 'h2';
-    titleH2.textContent = 'Ответь на вопрос:';
-
-    const titleForQuestion = document.createElement('h3');
-    titleForQuestion.className = 'task-1Level__h3';
-    titleForQuestion.id = 'h3';
+    const titleForQuestion = document.querySelector('#task-1Level__h3');
     titleForQuestion.textContent = 'Сколько будет ' + mathExpressionLevel1 +'?';
 
-    const input = document.createElement('input');
-    input.className = 'task-1Level__input';
-    input.id = 'input';
-    input.type = 'number';
-    input.placeholder = ' Введи число';
-    input.autofocus = true;
-    input.required = true;
-    input.max = '999999';
+    const input = document.querySelector('#task-1Level__input');
+    let answer_button = document.querySelector('.task-1Level__answer');
+    answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value)} );
 
-   appendSection();
 }
-taskMathLevel1();
 
-function resultOfQuestion (answer) {
-    if (answer == correctResultLevel1) {
 
-        clearSection();
+export function resultOfQuestion(answer) {
+    let correctResult = eval(mathExpressionLevel1); // правильный результат
+    if (answer == correctResult) {
 
         const congratulation = document.createElement('h1');
-        congratulation.textContent = randomCongratulationTitle;
+        congratulation.textContent = vars.randomCongratulationTitle;
 
-        section.appendChild(congratulation);
+        document.querySelector('#task-1Level').appendChild(congratulation);
 
         //дейстие игрока
 
-    } else if (answer !== correctResultLevel1) {
-
-        clearSection();
+    } else {
 
         const mistakeTitle = document.createElement('h1');
-        mistakeTitle.textContent = randomMistakeTitle;
+        mistakeTitle.textContent = vars.randomMistakeTitle;
 
-        section.appendChild(mistakeTitle);
+        document.querySelector('#task-1Level').appendChild(mistakeTitle);
 
         //действие монстра
     }
 }
-
-
-input.addEventListener('keypress', function(event){
-    if (event.code === "Enter") {
-        resultOfQuestion(input.value);
-    }
-});

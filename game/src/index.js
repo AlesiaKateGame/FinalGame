@@ -2,11 +2,15 @@ import style from "./_scss/main.scss";
 import loginHtml from './components/login/loginHtml.html';
 import loginJS from './components/login/loginJS.js';
 
+import mathTaskHtml from './components/tasks/MathTask/math.html';
+import * as test from './components/tasks/MathTask/MathJS/mathTaskLevel1.js';
 
 class Game {
     constructor () {
         this.player = null;
         this.monster = null;
+
+        this.level = 1;
     }
 
     addModalWindow () {
@@ -34,6 +38,14 @@ class Game {
        
     }
 
+    showTask(){
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = mathTaskHtml;
+
+        test.taskMathLevel1(this.level);
+    }
+
     start_game() {
         let modalwindow = document.querySelector('.modal-body');
         if(modalwindow.querySelector('#input__container-input').value != ''){
@@ -43,7 +55,8 @@ class Game {
         }
 
         modalwindow.replaceWith();
-        add_player();
+        //this.add_player();
+        this.showTask();
     }
 
     show_modal_dialog () {
