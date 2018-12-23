@@ -1,11 +1,7 @@
-
-
 import * as vars from './commonVariables';
 
-
 const mathExpressionLevel1 = vars.randomSingleDigit1 + vars.randomMathOperationPlusMinus + vars.randomSingleDigit2;
-        
-
+    
 export function taskMathLevel1 (level) {
     const gameLevel = document.querySelector('#task-1Level__h1');
     gameLevel.textContent = 'Уровень ' + level;
@@ -16,7 +12,6 @@ export function taskMathLevel1 (level) {
     const input = document.querySelector('#task-1Level__input');
     let answer_button = document.querySelector('.task-1Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value)} );
-
 }
 
 

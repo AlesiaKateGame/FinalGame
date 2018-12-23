@@ -9,7 +9,6 @@ class Game {
     constructor () {
         this.player = null;
         this.monster = null;
-
         this.level = 1;
     }
 
@@ -91,7 +90,7 @@ class Game {
             "name": localStorage.getItem('currentPlayer'),
             "health": 100,
             "gender": localStorage.getItem('currentGender') || 'boy',
-            "level": 1
+            
         }
     }
 
