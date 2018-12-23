@@ -1,9 +1,8 @@
 import style from "./_scss/main.scss";
 import loginHtml from './components/login/loginHtml.html';
-import loginJS from './components/login/loginJS.js';
 
 import mathTaskHtml from './components/tasks/MathTask/math.html';
-import * as test from './components/tasks/MathTask/MathJS/mathTaskLevel1.js';
+import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTaskLevel1.js';
 
 class Game {
     constructor () {
@@ -37,12 +36,12 @@ class Game {
        
     }
 
-    showTask(){
+    showMathTask(){
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = mathTaskHtml;
 
-        test.taskMathLevel1(this.level);
+        mathTaskJs.taskMathLevel1(this.level);
     }
 
     start_game() {
@@ -55,7 +54,7 @@ class Game {
 
         modalwindow.replaceWith();
         //this.add_player();
-        this.showTask();
+        this.showMathTask();
     }
 
     show_modal_dialog () {

@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   module: {
     rules: [
+      
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -40,6 +41,10 @@ module.exports = {
       }
     ]
   },
+  // resolve: {
+  //   modules: [path.resolve(__dirname, './src'), 'node_modules'],
+  //    extentions: [".js", ".jsx", ".json"]
+  // },
   plugins: [
     new HtmlWebPackPlugin({
       template: "src/index.html",
