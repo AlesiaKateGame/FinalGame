@@ -65,12 +65,15 @@
                 margin: 0 auto; 
                 display: block
             }
+            .warning {
+                display: none;
+            }
         }
         .button__play {
             cursor: pointer;
             position: absolute;
-            bottom: -135%;
-            right: 20%;
+            bottom: 0;
+            left: calc(50% - 120px);
             height: 210px;
             width: 246px;
             background-image: url("../components/login/img/button_play.png");

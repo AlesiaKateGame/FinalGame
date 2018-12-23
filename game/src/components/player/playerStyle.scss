@@ -1,4 +1,4 @@
-.hero {
+.player {
     width: 210px;
     height: 335px;
     position: absolute;
@@ -6,34 +6,34 @@
     left: 25%;
 }
 
-.hero_inform {
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between
-}
+// .player_inform {
+//     position: absolute;
+//     top: 15%;
+//     left: 10%;
+//     display: none;
+//     flex-direction: column;
+//     justify-content: space-between
+// }
 
-.hero_name {
-    font-size: 20px;
-    margin: 5%;
-}
+// .player_name {
+//     font-size: 20px;
+//     margin: 5%;
+// }
 
-.hero_helth {
-   width: 310px;
-   height: 20px;
-   background-color: green;
-   color: white;
-   border-radius: 20px;
-   padding: 5px;
-   font-weight: bold;
-   transition: width 1s;
+// .player_helth {
+//    width: 310px;
+//    height: 20px;
+//    background-color: green;
+//    color: white;
+//    border-radius: 20px;
+//    padding: 5px;
+//    font-weight: bold;
+//    transition: width 1s;
 
-}
+// }
 
-.hero.boy .hero_head {
-    background-image: url("heroes/boy/head.png");
+.player.boy .player_head {
+    background-image: url("../components/player/img/boy/head.png");
     width: 128%;
     height: 99%;
     position: absolute;
@@ -44,8 +44,8 @@
     background-repeat: no-repeat;
 }
 
-.hero.boy .hero_body {
-    background-image: url("heroes/boy/body.png");
+.player.boy .player_body {
+    background-image: url("../components/player/img/boy/body.png");
     width: 90%;
     height: 118%;
     position: absolute;
@@ -57,8 +57,8 @@
     background-repeat: no-repeat;
 }
 
-.hero.boy .hero_hand_right {
-    background-image: url("heroes/boy/right_hend.png");
+.player.boy .player_hand_right {
+    background-image: url("../components/player/img/boy/right_hend.png");
     width: 80%;
     height: 92%;
     position: absolute;
@@ -70,8 +70,8 @@
     background-repeat: no-repeat;
 }
 
-.hero.boy .hero_hand_left {
-    background-image: url("heroes/boy/left_hend.png");
+.player.boy .player_hand_left {
+    background-image: url("../components/player/img/boy/left_hend.png");
     width: 106%;
     height: 136%;
     position: absolute;
@@ -83,8 +83,8 @@
     background-repeat: no-repeat;
 }
 
-.hero.boy .hero_legs {
-    background-image: url("heroes/boy/legs.png");
+.player.boy .player_legs {
+    background-image: url("../components/player/img/boy/legs.png");
     width: 47%;
     height: 30%;
     position: absolute;
@@ -95,8 +95,8 @@
 }
 
 
-.hero.girl .hero_head {
-    background-image: url("heroes/girl/head.png");
+.player.girl .player_head {
+    background-image: url("../components/player/img/girl/head.png");
     width: 128%;
     height: 99%;
     position: absolute;
@@ -107,8 +107,8 @@
     background-repeat: no-repeat;
 }
 
-.hero.girl .hero_body {
-    background-image: url("heroes/girl/body.png");
+.player.girl .player_body {
+    background-image: url("../components/player/img/girl/body.png");
     width: 90%;
     height: 118%;
     position: absolute;
@@ -121,8 +121,8 @@
 
 }
 
-.hero.girl .hero_hand_right {
-    background-image: url("heroes/girl/right_hend.png");
+.player.girl .player_hand_right {
+    background-image: url("../components/player/img/girl/right_hend.png");
     width: 80%;
     height: 92%;
     position: absolute;
@@ -135,8 +135,8 @@
 
 }
 
-.hero.girl .hero_hand_left {
-    background-image: url("heroes/girl/left_hend.png");
+.player.girl .player_hand_left {
+    background-image: url("../components/player/img/girl/left_hend.png");
     width: 106%;
     height: 136%;
     position: absolute;
@@ -148,8 +148,8 @@
     background-repeat: no-repeat;
 }
 
-.hero.girl .hero_legs {
-    background-image: url("heroes/girl/legs.png");
+.player.girl .player_legs {
+    background-image: url("../components/player/img/girl/legs.png");
     width: 47%;
     height: 30%;
     position: absolute;
@@ -179,7 +179,7 @@
 }
 
 @keyframes left_hend {
-    0% {transform:  rotate(0);}
+    0% {transform:  rotate(0);} 
     50% {transform: rotate(15deg);}
     100% {transform:  rotate(0);}
 }
