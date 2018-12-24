@@ -44,7 +44,7 @@ export function resultOfQuestion(answer) {
         const congratulation = document.createElement('h1');
         congratulation.textContent = vars.randomCongratulationTitle;
 
-        document.querySelector('#task-1Level').appendChild(congratulation);
+        document.querySelector('#task-Level').appendChild(congratulation);
 
         //дейстие игрока
 
@@ -53,7 +53,7 @@ export function resultOfQuestion(answer) {
         const mistakeTitle = document.createElement('h1');
         mistakeTitle.textContent = vars.randomMistakeTitle;
 
-        document.querySelector('#task-1Level').appendChild(mistakeTitle);
+        document.querySelector('#task-Level').appendChild(mistakeTitle);
 
         //действие монстра
     }
