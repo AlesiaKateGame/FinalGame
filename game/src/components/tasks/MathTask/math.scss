@@ -23,12 +23,20 @@ section {
     border-image-repeat: round round; 
     border-image-source: url("./frame.png");
 }
-.task-1Level__input {
+.task-Level__input {
     width: 90%;
     height: 40%;
     border: 1px solid grey;
     border-radius: 3px;
     outline: none;
     margin: 5%;
-
+}
+#task-Level__button {
+    height: 85%;
+    width: 45%;
+    border-radius: 5px;
+    outline: none;
+    background: rgb(214, 99, 99);
+    color : white;
+    margin: 2% 27%;
 }
