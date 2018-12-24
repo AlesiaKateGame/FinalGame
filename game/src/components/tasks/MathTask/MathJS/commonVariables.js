@@ -1,19 +1,11 @@
 import {getRandomInRange, getRandomInArray} from './commonFunctions';
 
-export const section = document.getElementById("section");
-export const h1 = document.getElementById("h1");
-export const h2 = document.getElementById("h2");
-export const h3 = document.getElementById("h3");
-export const input = document.getElementById("input");
+export const congratulationTitleArray = ['Поздравляю! Хороший ответ!', 'Ты молодец! Tак держать!', 'Ты - мозг! Давай еще!', 'Умница! Классный ответ!', 'Ты легко преодолеваешь препятствия!', 'Супер! Доказал что можешь!', 'Прекрасная работа!', 'Прямое попадание в десятку!', 'Великолепно! Именно то что нужно!', 'Грандиозно! Прямо в цель!'];
+export const mistakeTitleArray = ['Ошибочка! Давай еще!', 'Не сдавайся! Попробуй снова','У тебя все получится! Не сдавайся','Ошибка! Попробуйка еще раз!', 'Ты можешь лучше!', 'Тебе это по силам! Попробуй еще!', 'У тебя все получится!', 'Может еще разок?', 'Не торопись, подумай!', 'Бывают неудачи, но нужно двигаться вперед!'];
 
-
-const congratulationTitleArray = ['Поздравляю! Хороший ответ!', 'Ты молодец! Tак держать!', 'Ты - мозг! Давай еще!', 'Умница! Классный ответ!', 'Ты легко преодолеваешь препятствия!', 'Супер! Доказал что можешь!', 'Прекрасная работа!', 'Прямое попадание в десятку!', 'Великолепно! Именно то что нужно!', 'Грандиозно! Прямо в цель!'];
-const mistakeTitleArray = ['Ошибочка! Давай еще!', 'Не сдавайся! Попробуй снова','У тебя все получится! Не сдавайся','Ошибка! Попробуйка еще раз!', 'Ты можешь лучше!', 'Тебе это по силам! Попробуй еще!', 'У тебя все получится!', 'Может еще разок?', 'Не торопись, подумай!', 'Бывают неудачи, но нужно двигаться вперед!'];
-
-const mathOperation = ['+', '-', '*', '/'];
-const mathOperationPlusMinus = ['+', '-'];
-const mathOperationMultDiv = ['*', '/'];
-
+export const mathOperation = ['+', '-', '*', '/'];
+export const mathOperationPlusMinus = ['+', '-'];
+export const mathOperationMultDiv = ['*', '/'];
 
 export const randomSingleDigit1 = getRandomInRange(0, 9);
 export const randomSingleDigit2 = getRandomInRange(0, 9);
