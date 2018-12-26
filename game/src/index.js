@@ -2,7 +2,7 @@ import style from "./_scss/main.scss";
 import loginHtml from './components/login/loginHtml.html';
 
 import mathTaskHtml from './components/tasks/MathTask/math.html';
-import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTaskLevel1.js';
+import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTaskLevel.js';
 
 class Game {
     constructor () {
