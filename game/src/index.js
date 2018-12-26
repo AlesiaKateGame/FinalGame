@@ -1,34 +1,60 @@
 import style from "./_scss/main.scss";
-import login from './components/login/login.html';
+import loginHtml from './components/login/loginHtml.html';
 
+import mathTaskHtml from './components/tasks/MathTask/math.html';
+import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTaskLevel1.js';
 
-    class Game {
+class Game {
     constructor () {
-        this.playr=null;
-        this.monster=null;
+        this.player = null;
+        this.monster = null;
+        this.level = 1;
+    }
+
+    addModalWindow () {
+        let modalwindow = document.createElement('div');
+        modalwindow.className = "modal-body";
+        document.body.appendChild(modalwindow);
+    }
+
+    show_login () {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = loginHtml;
         
-    }
-
-    game_login () {
-
-        document.body.addEventListener('click', showLogin)
-        function showLogin(){
-            let modal = document.createElement('div');
-            modal.className = 'modal-window';
-            modal.innerHTML = login;
-            document.body.appendChild(modal);
+        modalwindow.addEventListener('click', chooseGender);
+        function chooseGender(e){
+            if(e.target.classList.contains('hero__container-boy') ){
+                localStorage.setItem('currentGender', 'boy');
+            } else if(e.target.classList.contains('hero__container-girl') ){
+                localStorage.setItem('currentGender', 'girl');
+            }
         }
-        // - срабатывает после загрузки страницы;
-        // - убирает со страницы прелоадер;
-        // - в html добавляется html login (введите имя, выберите игрока(мальчик, девочка);
-        // - по кнопке Start запускается метод start_game;
+
+        let button_play = document.querySelector('.button__play');
+        button_play.addEventListener('click', () => {this.start_game()})
+       
     }
+
+    showMathTask(){
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = mathTaskHtml;
+
+        mathTaskJs.taskMathLevel1(this.level);
+    }
+
     start_game() {
-        // - убирает со страницы game_login;
-        // - вызываются 2 метода, которые отобаржают монстра на странице - add_monster(); add_player();
-        // - добавляются  кнопкy HIT  HILL (запоминаем в player.state);???????
-        // - по нажанитю на кнопи появляется add_modal_dialog, со всеми задачами;
-        // - игрок выбирает задачу и решает ее
+        let modalwindow = document.querySelector('.modal-body');
+        if(modalwindow.querySelector('#input__container-input').value != ''){
+            localStorage.setItem('currentPlayer', modalwindow.querySelector('#input__container-input').value)
+        } else {
+            modalwindow.querySelector('.warning').style.display = "block";
+        }
+
+        modalwindow.replaceWith();
+        //this.add_player();
+        this.showMathTask();
     }
 
     show_modal_dialog () {
@@ -38,7 +64,7 @@ import login from './components/login/login.html';
     add_monster() {
         // this.monster = {
         //     "name":  this.get_monster_name(),
-        //     "helt": 100,
+        //     "health": 100,
         //     "hash": generateMonster_hash()
         // }
 
@@ -59,32 +85,32 @@ import login from './components/login/login.html';
     }
 
     add_player(name) {
-        // this.player = {
-        //     "name": name,
-        //     "helth": 100,
-        //     "state": hit,
-        //     "level": 1
-        // }
+        this.player = {
+            "name": localStorage.getItem('currentPlayer'),
+            "health": 100,
+            "gender": localStorage.getItem('currentGender') || 'boy',
+            
+        }
     }
 
     monster_hit () {
         // - анимация (какая-то реакция монстра если игрок не правильно ответил);
-        // - chang_player_helt();
+        // - change_player_health();
     }
 
     player_hit () {
         // - анимация (какая-то реакция героя если игрок правильно ответил);
-        // - chang_monster_heltg();
+        // - change_monster_health();
     }
 
-    chang_player_helt() {
+    change_player_health() {
         // уменьшить или увеличить здоровье героя;
         // проверять если здоровье == 0 то this.game_over() иначе новое окно с задачами
     }
 
-    chang_monster_heltg() {
+    change_monster_health() {
         // уменьшить  здоровье монстра;
-        // проверять если здоровье ==0 то add_level() add_monster() - новый монстр;
+        // проверять если здоровье == 0 то add_level() add_monster() - новый монстр;
     }
 
     add_level () {
@@ -100,5 +126,5 @@ import login from './components/login/login.html';
         // из localStorage построить таблицу: name level
     }
 }
-let game = new Game(login);
-game.game_login();
+let game = new Game();
+game.show_login();
