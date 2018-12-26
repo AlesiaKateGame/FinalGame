@@ -45,7 +45,7 @@ export function resultOfQuestion(answer) {
         congratulation.textContent = vars.randomCongratulationTitle;
 
         document.querySelector('#task-Level').appendChild(congratulation);
-        new Audio('../aplodismenty_shot.mp3').play();
+        new Audio('../sounds/aplodismenty_shot.mp3').play();
 
         //дейстие игрока
 
@@ -55,7 +55,7 @@ export function resultOfQuestion(answer) {
         mistakeTitle.textContent = vars.randomMistakeTitle;
 
         document.querySelector('#task-Level').appendChild(mistakeTitle);
-        new Audio('../dissapoinment_shot.mp3').play();
+        new Audio('../sounds/dissapoinment_shot.mp3').play();
 
 
         //действие монстра
