@@ -1,41 +1,5 @@
 
-.monster_inform {
-    position: absolute;
-    top: 15%;
-    right: 10%;
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 310px;
-}
-
-.monster_helth {
-    width: 300px;
-    height: 20px;
-   background-color: green;
-   color: white;
-   border-radius: 20px;
-   padding: 5px;
-   font-weight: bold;
-   transition: width 1s;
-}
-
-.monster_name {
-    font-size: 20px;
-    margin: 5%;
-}
-
-.monster { 
-    width: 210px;
-    height: 335px;
-    position: absolute;
-    top: 30%;
-    left: 65%;
-}
-
-
-
-.monster .monster_head {
+.monster_head {
     width: 72%;
     height: 81%;
     position: absolute;
@@ -44,11 +8,26 @@
     background-size: contain;
     background-repeat: no-repeat;
     animation: monster_head 1.8s linear infinite;
+    &_0 {
+        background-image: url("../components/monster/img/head0.png");
+    }
+    &_1 {
+        background-image: url("../components/monster/img/head1.png")
+    }
+    &_2 {
+        background-image: url("../components/monster/img/head2.png")
+    }
+    &_3 {
+        background-image: url("../components/monster/img/head3.png")
+    }
+    &_4 {
+        background-image: url("../components/monster/img/head4.png")
+    }
+
+
 }
 
-
-.monster .monster_body {
-   
+.monster_body {
     width: 90%;
     height: 118%;
     position: absolute;
@@ -57,9 +36,22 @@
     background-size: contain;
     background-repeat: no-repeat;
     transform-origin: 50% 50% 0;
+    &_0 {
+        background-image: url("../components/monster/img/body0.png");
+    
+    }
+    &_1 {
+        background-image: url("../components/monster/img/body1.png")
+    }
+    &_2 {
+        background-image: url("../components/monster/img/body2.png")
+    }
+    
 }
 
-.monster .monster_hand_right {
+
+
+.monster_hand_right {
     width: 48%;
     height: 92%;
     position: absolute;
@@ -69,10 +61,20 @@
     background-repeat: no-repeat; 
     animation: monster_right_hend 2.3s linear infinite;
     transform-origin: 80% 10% 0;
+    &_0 {
+    background-image: url("../components/monster/img/right_hand0.png");
+    
+    }
+    &_1 {
+        background-image: url("../components/monster/img/right_hand1.png")
+    }
+    &_2 {
+        background-image: url("../components/monster/img/right_hand2.png")
+    }
+    
 }
 
-.monster .monster_hand_left{
-  
+.monster_hand_left {
     width: 99%;
     height: 136%;
     position: absolute;
@@ -82,7 +84,21 @@
     background-repeat: no-repeat;
     transform-origin: 80% 10% 0;
     animation: monster_left_hend 1s linear infinite;
+
+    &_0 {
+        background-image: url("../components/monster/img/left_hand0.png");
+    
+    }
+    &_1 {
+        background-image: url("../components/monster/img/left_hand1.png")
+    }
+    &_2 {
+        background-image: url("../components/monster/img/left_hand2.png")
+    }
+    
 }
+
+
 
 @keyframes monster_body {
     0% {transform: rotate(-5deg);}

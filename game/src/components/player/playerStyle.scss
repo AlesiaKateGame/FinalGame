@@ -6,50 +6,24 @@
     left: 25%;
 }
 
-// .player_inform {
-//     position: absolute;
-//     top: 15%;
-//     left: 10%;
-//     display: none;
-//     flex-direction: column;
-//     justify-content: space-between
-// }
-
-// .player_name {
-//     font-size: 20px;
-//     margin: 5%;
-// }
-
-// .player_helth {
-//    width: 310px;
-//    height: 20px;
-//    background-color: green;
-//    color: white;
-//    border-radius: 20px;
-//    padding: 5px;
-//    font-weight: bold;
-//    transition: width 1s;
-
-// }
-
-.player.boy .player_head {
-    background-image: url("../components/player/img/boy/head.png");
+.boy .player_head {
+    background-image: url("../components/player/img/boy/boy_head.png");
     width: 128%;
     height: 99%;
     position: absolute;
-    left: -14%;
-    top: -95%;
+    left: -3%;
+    top: -92%;
     animation: head 1.8s linear infinite;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.player.boy .player_body {
-    background-image: url("../components/player/img/boy/body.png");
+.boy .player_body {
+    background-image: url("../components/player/img/boy/boy_body.png");
     width: 90%;
     height: 118%;
     position: absolute;
-    left: 3%;
+    left: 0%;
     top: -97%;
     transform-origin: 50% 50% 0;
     animation: body 2s linear infinite;
@@ -57,34 +31,34 @@
     background-repeat: no-repeat;
 }
 
-.player.boy .player_hand_right {
-    background-image: url("../components/player/img/boy/right_hend.png");
+.boy .player_hand_right {
+    background-image: url("../components/player/img/boy/boy_right_hend.png");
     width: 80%;
     height: 92%;
     position: absolute;
-    left: -49%;
-    top: 2%;
+    left: -38%;
+    top: 1%;
     animation: right_hend 1s linear infinite;
     transform-origin: 70% 0% 0;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.player.boy .player_hand_left {
-    background-image: url("../components/player/img/boy/left_hend.png");
+.boy .player_hand_left {
+    background-image: url("../components/player/img/boy/boy_left_hend.png");
     width: 106%;
     height: 136%;
     position: absolute;
-    left: 68%;
-    top: -87%;
+    left: 67%;
+    top: -92%;
     transform-origin: 0% 70% 0;
     animation: left_hend 1s linear infinite;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.player.boy .player_legs {
-    background-image: url("../components/player/img/boy/legs.png");
+.boy .player_legs {
+    background-image: url("../components/player/img/boy/boy_legs.png");
     width: 47%;
     height: 30%;
     position: absolute;
@@ -95,8 +69,8 @@
 }
 
 
-.player.girl .player_head {
-    background-image: url("../components/player/img/girl/head.png");
+.girl .player_head {
+    background-image: url("../components/player/img/girl/girl_head.png");
     width: 128%;
     height: 99%;
     position: absolute;
@@ -107,8 +81,8 @@
     background-repeat: no-repeat;
 }
 
-.player.girl .player_body {
-    background-image: url("../components/player/img/girl/body.png");
+.girl .player_body {
+    background-image: url("../components/player/img/girl/girl_body.png");
     width: 90%;
     height: 118%;
     position: absolute;
@@ -121,13 +95,13 @@
 
 }
 
-.player.girl .player_hand_right {
-    background-image: url("../components/player/img/girl/right_hend.png");
+.girl .player_hand_right {
+    background-image: url("../components/player/img/girl/girl_right_hend.png");
     width: 80%;
     height: 92%;
     position: absolute;
-    left: -23%;
-    top: 2%;
+    left: -15%;
+    top: 5%;
     animation: right_hend 1s linear infinite;
     transform-origin: 70% 0% 0;
     background-size: contain;
@@ -135,8 +109,8 @@
 
 }
 
-.player.girl .player_hand_left {
-    background-image: url("../components/player/img/girl/left_hend.png");
+.girl .player_hand_left {
+    background-image: url("../components/player/img/girl/girl_left_hend.png");
     width: 106%;
     height: 136%;
     position: absolute;
@@ -146,10 +120,10 @@
     animation: girl_left_hend 1s linear infinite;
     background-size: contain;
     background-repeat: no-repeat;
-}
+    }
 
-.player.girl .player_legs {
-    background-image: url("../components/player/img/girl/legs.png");
+.girl .player_legs {
+    background-image: url("../components/player/img/girl/girl_legs.png");
     width: 47%;
     height: 30%;
     position: absolute;

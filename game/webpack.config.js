@@ -1,4 +1,3 @@
-
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -20,7 +19,10 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: { name: 'img/[name].[ext]' }
+          },
           {
             loader: 'image-webpack-loader',
             options: {
