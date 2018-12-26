@@ -45,6 +45,27 @@ body, html {
         background-repeat: no-repeat;
         background-position: left bottom;
     }
+    .scene_container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        position: absolute;
+        top: 53%;
+    }
+
+    .scene_container-player {
+        position: relative;
+        width: 240px;
+        height: 375px;
+    }
+
+    .scene_container-monster {
+    width: 250px;
+    height: 375px;
+    position: relative;
+    margin-top: -5%;
+    
+    }
     
     .ground {
         position: absolute;
@@ -54,6 +75,60 @@ body, html {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: left bottom;
+    }
+
+    .monster_inform {
+        position: absolute;
+        left: 60%;
+        top: 10%;
+        display: none;
+        .monster_helth {
+            width: 300px;
+            height: 20px;
+           background-color: green;
+           color: white;
+           border-radius: 20px;
+           padding: 5px;
+           font-weight: bold;
+           transition: width 1s;
+        }
+        
+        .monster_name {
+            font-size: 20px;
+            margin: 5%;
+        }
+    }
+
+    .player_inform {
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        display: none;
+           .player_name {
+            font-size: 20px;
+            margin: 5%;
+        }
+        
+        .player_helth {
+           width: 310px;
+           height: 20px;
+           background-color: green;
+           color: white;
+           border-radius: 20px;
+           padding: 5px;
+           font-weight: bold;
+           transition: width 1s;
+        
+        }
+    }
+    
+    .fight_button {
+       background-color: aqua;
+        padding: 50px 100px;
+        position: absolute;
+        top: 45%;
+        left: 45%;
+        display: none;
     }
     
     .clouds {

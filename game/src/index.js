@@ -2,7 +2,11 @@ import style from "./_scss/main.scss";
 import loginHtml from './components/login/loginHtml.html';
 
 import mathTaskHtml from './components/tasks/MathTask/math.html';
-import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTaskLevel1.js';
+import playerHtml from './components/player/playerHtml.html';
+import monsterHtml from './components/monster/monsterHtml.html';
+import * as choose_player from './components/player/choose_player.js';
+import * as monsterJS from './components/monster/monsterJS.js';
+
 
 class Game {
     constructor () {
@@ -21,12 +25,16 @@ class Game {
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = loginHtml;
-        
-        modalwindow.addEventListener('click', chooseGender);
-        function chooseGender(e){
-            if(e.target.classList.contains('hero__container-boy') ){
+        let hero__container=document.querySelector('.hero__container');
+        hero__container.addEventListener('click', activePlayer);
+
+        function activePlayer(e) {
+            let activeArr=Array.from(hero__container.getElementsByClassName("active"));
+            activeArr.forEach((v)=>v.classList.remove("active"));
+            e.target.parentNode.classList.add("active");
+            if(e.target.parentNode.classList.contains('boy')){
                 localStorage.setItem('currentGender', 'boy');
-            } else if(e.target.classList.contains('hero__container-girl') ){
+            } else if (e.target.parentNode.classList.contains('girl')){
                 localStorage.setItem('currentGender', 'girl');
             }
         }
@@ -53,8 +61,9 @@ class Game {
         }
 
         modalwindow.replaceWith();
-        //this.add_player();
-        this.showMathTask();
+        this.add_player();
+        this.add_monster();
+        //this.showMathTask();
     }
 
     show_modal_dialog () {
@@ -68,29 +77,23 @@ class Game {
         //     "hash": generateMonster_hash()
         // }
 
-        // function render_monster (str) {
-        //     let head= [массив изображений];
-        //     let weapon =[png...];
-        //     let body=[png...];
-        // }
+       
+        let scene_monster=document.querySelector('.scene_container-monster');
+        scene_monster.innerHTML=monsterHtml;
+        monsterJS.startMonster();
     };
 
-    get_monster_name(){
-        // generate random name here
-        return name;
-    }
-
-    generateMonster_hash() {
-        // возвращает например строку с рандомными цифрами для 
-    }
-
-    add_player(name) {
+    
+    add_player() {
         this.player = {
-            "name": localStorage.getItem('currentPlayer'),
+            "name": localStorage.getItem('currentPlayer')|| "PLAYER",
             "health": 100,
             "gender": localStorage.getItem('currentGender') || 'boy',
-            
         }
+
+        let scene_player=document.querySelector('.scene_container-player');
+        scene_player.innerHTML=playerHtml;
+        choose_player.choose_player(this.player.name);
     }
 
     monster_hit () {
@@ -114,7 +117,7 @@ class Game {
     }
 
     add_level () {
-        // player.level++
+        // this.level++
     }
 
     game_over () {
