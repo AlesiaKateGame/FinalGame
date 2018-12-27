@@ -7,12 +7,13 @@ import monsterHtml from './components/monster/monsterHtml.html';
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
 
+import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
 
 class Game {
     constructor () {
         this.player = null;
         this.monster = null;
-        this.level = 1;
+        this.level = 4;
     }
 
     addModalWindow () {
@@ -49,7 +50,7 @@ class Game {
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = mathTaskHtml;
 
-        mathTaskJs.taskMathLevel1(this.level);
+        mathTaskJs.mathTask(this.level);
     }
 
     start_game() {
@@ -63,7 +64,7 @@ class Game {
         modalwindow.replaceWith();
         this.add_player();
         this.add_monster();
-        //this.showMathTask();
+        this.showMathTask();
     }
 
     show_modal_dialog () {
