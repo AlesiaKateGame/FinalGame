@@ -1,12 +1,12 @@
 import style from "./_scss/main.scss";
 import loginHtml from './components/login/loginHtml.html';
-
 import mathTaskHtml from './components/tasks/MathTask/math.html';
 import playerHtml from './components/player/playerHtml.html';
 import monsterHtml from './components/monster/monsterHtml.html';
+import * as task_bar from './components/task_bar/task_barHTML.html';
+
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
-
 import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
 
 class Game {
@@ -55,20 +55,36 @@ class Game {
 
     start_game() {
         let modalwindow = document.querySelector('.modal-body');
+        let fight_button = document.querySelector('.fight_button');
         if(modalwindow.querySelector('#input__container-input').value != ''){
             localStorage.setItem('currentPlayer', modalwindow.querySelector('#input__container-input').value)
         } else {
             modalwindow.querySelector('.warning').style.display = "block";
         }
 
+     
+
+        fight_button.addEventListener('click', () => {this.show_task_bar()});
         modalwindow.replaceWith();
         this.add_player();
         this.add_monster();
-        this.showMathTask();
+       
+        // 
     }
 
-    show_modal_dialog () {
-        // появление экрана со всеми задачами
+    show_task_bar () {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = task_bar;
+        
+
+        let task__bar_elem=document.querySelector(".task__bar");
+        task__bar_elem.addEventListener('click', (e) => {
+            if (e.target.classList.contains("math_task")) {
+                this.showMathTask();
+            }
+        });
+       
     }
 
     add_monster() {
