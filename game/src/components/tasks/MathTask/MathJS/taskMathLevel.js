@@ -2,10 +2,10 @@ import * as vars from './commonVariables';
 
 
 const mathExpressionLevel1 = vars.randomSingleDigit1 + vars.randomMathOperationPlusMinus + vars.randomSingleDigit2;
-const mathExpressionLevel2 = randomSingleDigit1 + randomMathOperationMultDiv + randomSingleDigitExceptZero;
-const mathExpressionLevel3 = randomTwoDigitNumber + randomMathOperationPlusMinus + randomTwoDigitNumberSinceZero;
-const mathExpressionLevel4 = randomTwoDigitNumber + randomMathOperationMultDiv + randomSingleDigitExceptZero;
-const mathExpressionLevel5 = randomThreeDigitNumber + randomMathOperation + randomSingleDigitExceptZero; 
+const mathExpressionLevel2 = vars.randomSingleDigit1 + vars.randomMathOperationMultDiv + vars.randomSingleDigitExceptZero;
+const mathExpressionLevel3 = vars.randomTwoDigitNumber + vars.randomMathOperationPlusMinus + vars.randomTwoDigitNumberSinceZero;
+const mathExpressionLevel4 = vars.randomTwoDigitNumber + vars.randomMathOperationMultDiv + vars.randomSingleDigitExceptZero;
+const mathExpressionLevel5 = vars.randomThreeDigitNumber + vars.randomMathOperation + vars.randomSingleDigitExceptZero; 
 
 export function taskMathLevel (level) {
 
