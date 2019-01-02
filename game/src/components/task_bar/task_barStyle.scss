@@ -4,13 +4,37 @@
     left: 24%;
     width: 56%;
     height: 55%;
-    background-color: rgb(248, 181, 94);
+    background-color: #494f5b;
+    border-radius: 20px;
+
     .task__bar-button {
     padding: 31px;
     background-color: #5ec7f8;
     margin: 24px auto;
     width: 145px;
     cursor: pointer;
+    }
+    .task__bar-title {
+        position: relative;
+        width: 550px;
+        padding: 30px 0;
+        background-color: #99a3af;
+        border-radius: 40px;
+        margin: 50px auto;
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        text-align: center;
+        .task__bar-title_img{
+            position: absolute;
+            top: -30px;
+            left: -10px;
+            width: 133px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        background-image: url("../components/task_bar/img/cup.png"); 
+        }
 
     }
 }
