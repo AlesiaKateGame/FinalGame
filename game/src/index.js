@@ -16,7 +16,6 @@ class Game {
         this.player = null;
         this.monster = null;
         this.level = 1;
-
         this.bindedClearModal = this.clearModal.bind(this)
     }
 
