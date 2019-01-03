@@ -8,22 +8,29 @@ import * as task_bar from './components/task_bar/task_barHTML.html';
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
 import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
+import * as battleJS from './components/battle/battleJS.js';
+
 
 class Game {
     constructor () {
         this.player = null;
         this.monster = null;
-        this.level = 4;
+        this.level = 1;
+        this.bindedClearModal = this.clearModal.bind(this)
     }
 
     addModalWindow () {
-        let modalwindow = document.createElement('div');
-        modalwindow.className = "modal-body";
-        document.body.appendChild(modalwindow);
+        if ( !document.querySelector('.modal-body')) {
+            let modalwindow = document.createElement('div');
+            modalwindow.className = "modal-body";
+            document.body.appendChild(modalwindow);
+        }
     }
 
     show_login () {
+        
         this.addModalWindow();
+        
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = loginHtml;
         let hero__container=document.querySelector('.hero__container');
@@ -45,14 +52,6 @@ class Game {
        
     }
 
-    showMathTask(){
-        this.addModalWindow();
-        let modalwindow = document.querySelector('.modal-body');
-        modalwindow.innerHTML = mathTaskHtml;
-
-        mathTaskJs.mathTask(this.level);
-    }
-
     start_game() {
         let modalwindow = document.querySelector('.modal-body');
         let fight_button = document.querySelector('.fight_button');
@@ -62,18 +61,39 @@ class Game {
             modalwindow.querySelector('.warning').style.display = "block";
         }
 
-     
-
-        fight_button.addEventListener('click', () => {this.show_task_bar()});
+        fight_button.addEventListener('click', () => { 
+            document.querySelector(".weapon_container").style.display="none";
+            this.show_task_bar()});
         modalwindow.replaceWith();
+        document.querySelector(".weapon_container").style.display="flex";
+
+        let weapon=document.querySelector(".weapon_container");
+        weapon.addEventListener("click", (e) => {this.choose_weapon(e)});
+
         this.add_player();
         this.add_monster();
        
         // 
     }
 
+
+    choose_weapon(e) {
+       
+            if (e.target.classList.contains("weapon_container-fire")) {
+                localStorage.setItem('currentWeapon', 'fire');
+            }else if (e.target.classList.contains("weapon_container-poison"))
+                {localStorage.setItem('currentWeapon', 'poison');
+            }else if (e.target.classList.contains("weapon_container-light")) {
+                localStorage.setItem('currentWeapon', 'light');
+            }
+            battleJS.poison_hit();
+    }
+
+
     show_task_bar () {
+        
         this.addModalWindow();
+        
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = task_bar;
         
@@ -88,11 +108,9 @@ class Game {
     }
 
     add_monster() {
-        // this.monster = {
-        //     "name":  this.get_monster_name(),
-        //     "health": 100,
-        //     "hash": generateMonster_hash()
-        // }
+        this.monster = {
+            "health": 100,
+        }
 
        
         let scene_monster=document.querySelector('.scene_container-monster');
@@ -106,6 +124,7 @@ class Game {
             "name": localStorage.getItem('currentPlayer')|| "PLAYER",
             "health": 100,
             "gender": localStorage.getItem('currentGender') || 'boy',
+            "weapon": "fire",
         }
 
         let scene_player=document.querySelector('.scene_container-player');
@@ -113,31 +132,53 @@ class Game {
         choose_player.choose_player(this.player.name);
     }
 
-    monster_hit () {
-        // - анимация (какая-то реакция монстра если игрок не правильно ответил);
-        // - change_player_health();
+    clearModal () {
+        let modalwindow = document.querySelector('.modal-body');
+        setTimeout(() => { modalwindow.replaceWith()}, 1500);
+        console.log(localStorage.getItem('answerState'))
+        if (localStorage.getItem('answerState')=="true") {
+            this.player_hit();
+        }else{
+            this.monster_hit(); 
+        }
     }
 
-    player_hit () {
-        // - анимация (какая-то реакция героя если игрок правильно ответил);
-        // - change_monster_health();
+    monster_hit() {
+        document.querySelector(".weapon_container").style.display="flex";
+        this.change_player_health();
+    }
+
+    player_hit() {
+        document.querySelector(".weapon_container").style.display="flex";
+        this.change_monster_health();
     }
 
     change_player_health() {
-        // уменьшить или увеличить здоровье героя;
-        // проверять если здоровье == 0 то this.game_over() иначе новое окно с задачами
+        this.player.health-=20;
+        document.querySelector(".player_health").innerHTML=this.player.health;
+        if(this.player.health<=0) {
+            this.game_over ();
+        }
+     
     }
 
     change_monster_health() {
-        // уменьшить  здоровье монстра;
-        // проверять если здоровье == 0 то add_level() add_monster() - новый монстр;
+        console.log(this.monster, this.monster.health)
+        this.monster.health-=20;
+        document.querySelector(".monster_health").innerHTML=this.monster.health;
+        if(this.monster_health<=0) {
+            this.add_level ();
+        }
     }
 
     add_level () {
-        // this.level++
+        this.level++;
+        //анимация поздравляем с новым левелом!!!!!!
     }
 
     game_over () {
+
+        alert("GAME OVER")
         // записываются данные игрока localStorage построить таблицу: name level
         // появляется экран game over и кнопка see score
     }
@@ -145,6 +186,18 @@ class Game {
     add_score () {
         // из localStorage построить таблицу: name level
     }
+
+    showMathTask(){
+       
+        this.addModalWindow();
+        
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = mathTaskHtml;
+
+        mathTaskJs.mathTask(this.level, this.bindedClearModal);
+    }
+
+
 }
 let game = new Game();
 game.show_login();

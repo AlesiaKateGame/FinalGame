@@ -10,7 +10,7 @@ const mathExpressionLevel3 = vars.randomTwoDigitNumber + vars.randomMathOperatio
 const mathExpressionLevel4 = vars.randomTwoDigitNumber + vars.randomMathOperationMultDiv + vars.randomSingleDigitExceptZero;
 const mathExpressionLevel5 = vars.randomThreeDigitNumber + vars.randomMathOperation + vars.randomSingleDigitExceptZero; 
 
-export function mathTask (level) {
+export function mathTask (level, clear_modal) {
 
     if (level === 1) {
      mathExpressionLevel = mathExpressionLevel1;
@@ -35,34 +35,27 @@ export function mathTask (level) {
 
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
-    answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value)})
+    answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
 
 }
 
 
-export function resultOfQuestion(answer) {
+export function resultOfQuestion(answer, clear_modal) {
     let correctResult = eval(mathExpressionLevel); // правильный результат
     if (answer == correctResult) {
-
-        const congratulation = document.createElement('h1');
-        congratulation.textContent = vars.randomCongratulationTitle;
-
-        document.querySelector('#task-Level').appendChild(congratulation);
+        document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomCongratulationTitle+"</h1>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
         aplodisment.play();
-
+        localStorage.setItem('answerState', true);
+        clear_modal();
         //дейстие игрока
 
     } else {
-
-        const mistakeTitle = document.createElement('h1');
-        mistakeTitle.textContent = vars.randomMistakeTitle;
-
-        document.querySelector('#task-Level').appendChild(mistakeTitle);
+        document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomMistakeTitle+"</h1>";
         let soundluse=new Audio('sounds/dissapoinment_shot.mp3');
         soundluse.play();
-
-
+        localStorage.setItem('answerState', false);
+        clear_modal();
         //действие монстра
     }
 }
