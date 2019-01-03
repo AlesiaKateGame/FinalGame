@@ -1,0 +1,16 @@
+.task__bar {
+    position: absolute;
+    top: 40%;
+    left: 24%;
+    width: 56%;
+    height: 55%;
+    background-color: rgb(248, 181, 94);
+    .task__bar-button {
+    padding: 31px;
+    background-color: #5ec7f8;
+    margin: 24px auto;
+    width: 145px;
+    cursor: pointer;
+
+    }
+}
