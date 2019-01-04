@@ -38,7 +38,5 @@ export function poison_hit () {
 //     document.body.onclick=null;
 
     poison_ball.classList.toggle("animated");
-    monster_helth.innerHTML = monster_helth.innerHTML-20;
-    monster_helth.style.width = monster_helth.innerHTML*3 + "px";
     setTimeout (function () {poison_ball.classList.toggle("animated")}, 3500 )
 }
