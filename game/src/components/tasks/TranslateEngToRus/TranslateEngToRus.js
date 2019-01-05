@@ -1,8 +1,8 @@
-import jsonFile1 from './wordTranslateEngToRus1.json';
-//import jsonFile2 from './wordTranslateEngToRus2.json';
-//import jsonFile3 from './wordTranslateEngToRus3.json';
-//import jsonFile4 from './wordTranslateEngToRus4.json';
-//import jsonFile5 from './wordTranslateEngToRus5.json';
+import jsonFile1 from './WordTranslateEngToRus/wordTranslateEngToRus1.json';
+import jsonFile2 from './WordTranslateEngToRus/wordTranslateEngToRus2.json';
+import jsonFile3 from './WordTranslateEngToRus/wordTranslateEngToRus3.json';
+import jsonFile4 from './WordTranslateEngToRus/wordTranslateEngToRus4.json';
+import jsonFile5 from './WordTranslateEngToRus/wordTranslateEngToRus5.json';
         
 
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
@@ -29,7 +29,7 @@ function jsonFunc (jsonFile) {
     
         if (level === 1) {
             jsonFunc(jsonFile1);
-        } /*else if (level === 2) {
+        } else if (level === 2) {
             jsonFunc(jsonFile2);
         } else if (level === 3) {
             jsonFunc(jsonFile3);
@@ -37,7 +37,7 @@ function jsonFunc (jsonFile) {
             jsonFunc(jsonFile4);
         } else if (level === 5) {
             jsonFunc(jsonFile5);
-        }*/
+        }
  
         const gameLevel = document.querySelector('#task-Level__h1');
         gameLevel.textContent = 'Уровень ' + level;
