@@ -137,6 +137,8 @@
     background-repeat: no-repeat;
     display: none;
     animation-fill-mode: forwards;
+    left: -263%;
+    top: -117%;
 
 }
 
@@ -154,6 +156,7 @@
     width: 250px;
     height: 250px;
     display: none;
+    background-position: 0 0;
 }
 
 .fire_explosion.animated {
@@ -164,31 +167,32 @@
 }
 
 @keyframes fire_ball_anim {
-    0% {top: -200px; left: 0; transform: rotate(0deg)}
-    100% {top: 30%; left: 65%; transform: rotate(720deg)}
+    0% {top: -500px; left: -500px; transform: rotate(0deg)}
+    100% {top: 30%; left: 5%; transform: rotate(720deg)}
 }
 
 @keyframes fire_ball_expl {
     0% {background-position: 0 0;}
-    9.99% {background-position: 0 0;}
+    9.9999% {background-position: 0 0;}
     10% {background-position: -250px 0;}
-    19.99% {background-position: -250px 0;}
+    19.9999% {background-position: -250px 0;}
     20% {background-position: -500px 0;}
-    29.99% {background-position: -5000px 0;}
+    29.9999% {background-position: -500px 0;}
     30% {background-position: -750px 0;}
-    39.99% {background-position: -750px 0;}
+    39.9999% {background-position: -750px 0;}
     40% {background-position: -1000px 0;}
-    49.99% {background-position: -1000px 0;}
+    49.9999% {background-position: -1000px 0;}
     50% {background-position: -1250px 0;}
-    59.99% {background-position: -1250px 0;}
+    59.9999% {background-position: -1250px 0;}
     60% {background-position: -1500px 0;}
-    69.99% {background-position: -1500px 0;}
+    69.9999% {background-position: -1500px 0;}
     70% {background-position: -1750px 0;}
-    79.99% {background-position: -1750px 0;}
+    79.9999% {background-position: -1750px 0;}
     80% {background-position: -2000px 0;}
-    89.99% {background-position: -2000px 0;}
+    89.9999% {background-position: -2000px 0;}
     90% {background-position: -2250px 0;}
-    100% {background-position: -2250px 0;}
+    99.9999% {background-position: -2250px 0;}
+    100% {background-position: 0 0;}
 
 }
 
@@ -247,7 +251,7 @@
     width: 250px;
     height: 250px;
     display: none;
-
+    background-position: 0 0;
 }
 
 
@@ -259,23 +263,23 @@
 
 @keyframes light_ball_expl {
     0% {background-position: 0 0;}
-    9.99% {background-position: 0 0;}
+    9.9999% {background-position: 0 0;}
     10% {background-position: -250px 0;}
-    19.99% {background-position: -250px 0;}
+    19.9999% {background-position: -250px 0;}
     20% {background-position: -500px 0;}
-    29.99% {background-position: -500px 0;}
+    29.9999% {background-position: -500px 0;}
     30% {background-position: -750px 0;}
-    39.99% {background-position: -750px 0;}
+    39.9999% {background-position: -750px 0;}
     40% {background-position: -1000px 0;}
-    49.99% {background-position: -1000px 0;}
+    49.9999% {background-position: -1000px 0;}
     50% {background-position: -1250px 0;}
-    59.99% {background-position: -1250px 0;}
+    59.9999% {background-position: -1250px 0;}
     60% {background-position: -1500px 0;}
-    69.99% {background-position: -1500px 0;}
+    69.9999% {background-position: -1500px 0;}
     70% {background-position: -1750px 0;}
-    79.99% {background-position: -1750px 0;}
+    79.9999% {background-position: -1750px 0;}
     80% {background-position: -2000px 0;}
-    89.99% {background-position: -2000px 0;}
+    89.9999% {background-position: -2000px 0;}
     90% {background-position: -2250px 0;}
     100% {background-position: -2250px 0;}
 

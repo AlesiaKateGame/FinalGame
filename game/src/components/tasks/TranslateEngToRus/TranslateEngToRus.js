@@ -1,40 +1,42 @@
-import jsonFile from './wordsTranslateEngToRus1.json';
-        const data = JSON.parse(jsonFile);
+import jsonFile from './wordTranslateEngToRus1.json';
+        // const data = JSON.parse(jsonFile);
 
-import getRandomInArray from '../MathTask/MathJS/commonFunctions';
+import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 
-  const array = data['words'];
-     let numberOfObject = getRandomInArray(array);
-     const randomObject = array[numberOfObject];
-     const randomWord = randomObject['word'];
-     let randomWordTranslation = randomObject['translation'];
+const array = jsonFile['words'];
+let numberOfObject = getRandomInArray(array);
+const randomObject = array[numberOfObject];
+const randomWord = randomObject['word'];
+let randomWordTranslation = randomObject['translation'];
 
 
      export function translateEngToRusTask (level, clear_modal) {
-/*
-        if (level === 1) {
-         import jsonFile from './wordsTranslateEngToRus1.json';
-        const data = JSON.parse(jsonFile);
-        } else if (level === 2) {
-            import jsonFile from './wordsTranslateEngToRus2.json';
-        const data = JSON.parse(jsonFile);  
-        }
-        else if (level === 3) {
-           import jsonFile from './wordsTranslateEngToRus3.json';
-        const data = JSON.parse(jsonFile);
-        }
-        else if (level === 4) {
-        import jsonFile from './wordsTranslateEngToRus4.json';
-        const data = JSON.parse(jsonFile);
-        }
-        else if (level === 5) {
-           import jsonFile from './wordsTranslateEngToRus5.json';
-        const data = JSON.parse(jsonFile);  
-        }
-  */  
+       
+
+// /*
+//         if (level === 1) {
+//          import jsonFile from './wordsTranslateEngToRus1.json';
+//         const data = JSON.parse(jsonFile);
+//         } else if (level === 2) {
+//             import jsonFile from './wordsTranslateEngToRus2.json';
+//         const data = JSON.parse(jsonFile);  
+//         }
+//         else if (level === 3) {
+//            import jsonFile from './wordsTranslateEngToRus3.json';
+//         const data = JSON.parse(jsonFile);
+//         }
+//         else if (level === 4) {
+//         import jsonFile from './wordsTranslateEngToRus4.json';
+//         const data = JSON.parse(jsonFile);
+//         }
+//         else if (level === 5) {
+//            import jsonFile from './wordsTranslateEngToRus5.json';
+//         const data = JSON.parse(jsonFile);  
+//         }
+//   */  
         const gameLevel = document.querySelector('#task-Level__h1');
         gameLevel.textContent = 'Уровень ' + level;
     

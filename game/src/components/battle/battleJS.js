@@ -26,7 +26,7 @@ export function fire_hit () {
     // document.body.onclick=null;
 
     setTimeout (function () {fire_ball.classList.toggle("animated")}, 1500 );
-    setTimeout (function () {fire_explosion.classList.toggle("animated")}, 3000 )
+    setTimeout (function () {fire_explosion.classList.toggle("animated")}, 3000 );
 }
     
 export function poison_hit () {
