@@ -1,42 +1,44 @@
-import jsonFile from './wordTranslateEngToRus1.json';
-        // const data = JSON.parse(jsonFile);
+import jsonFile1 from './wordTranslateEngToRus1.json';
+//import jsonFile2 from './wordTranslateEngToRus2.json';
+//import jsonFile3 from './wordTranslateEngToRus3.json';
+//import jsonFile4 from './wordTranslateEngToRus4.json';
+//import jsonFile5 from './wordTranslateEngToRus5.json';
+        
 
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 
-const array = jsonFile['words'];
-let numberOfObject = getRandomInArray(array);
-const randomObject = array[numberOfObject];
-const randomWord = randomObject['word'];
-let randomWordTranslation = randomObject['translation'];
+const array;
+let numberOfObject;
+const randomObject, randomWord;
+let randomWordTranslation;
+
+
+function jsonFunc (jsonFile) {
+    array = jsonFile['words'];
+    numberOfObject = getRandomInArray(array);
+    randomObject = array[numberOfObject];
+    randomWord = randomObject['word'];
+    randomWordTranslation = randomObject['translation'];
+}
 
 
      export function translateEngToRusTask (level, clear_modal) {
-       
-
-// /*
-//         if (level === 1) {
-//          import jsonFile from './wordsTranslateEngToRus1.json';
-//         const data = JSON.parse(jsonFile);
-//         } else if (level === 2) {
-//             import jsonFile from './wordsTranslateEngToRus2.json';
-//         const data = JSON.parse(jsonFile);  
-//         }
-//         else if (level === 3) {
-//            import jsonFile from './wordsTranslateEngToRus3.json';
-//         const data = JSON.parse(jsonFile);
-//         }
-//         else if (level === 4) {
-//         import jsonFile from './wordsTranslateEngToRus4.json';
-//         const data = JSON.parse(jsonFile);
-//         }
-//         else if (level === 5) {
-//            import jsonFile from './wordsTranslateEngToRus5.json';
-//         const data = JSON.parse(jsonFile);  
-//         }
-//   */  
+    
+        if (level === 1) {
+            jsonFunc(jsonFile1);
+        } /*else if (level === 2) {
+            jsonFunc(jsonFile2);
+        } else if (level === 3) {
+            jsonFunc(jsonFile3);
+        } else if (level === 4) {
+            jsonFunc(jsonFile4);
+        } else if (level === 5) {
+            jsonFunc(jsonFile5);
+        }*/
+ 
         const gameLevel = document.querySelector('#task-Level__h1');
         gameLevel.textContent = 'Уровень ' + level;
     
