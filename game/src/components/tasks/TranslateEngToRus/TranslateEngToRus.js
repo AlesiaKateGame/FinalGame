@@ -10,9 +10,9 @@ import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 
-const array;
+let array;
 let numberOfObject;
-const randomObject, randomWord;
+let randomObject, randomWord;
 let randomWordTranslation;
 
 

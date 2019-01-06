@@ -1,0 +1,188 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "DK_Rabbit"; 
+    src: url("./fonts/DK_Rabbit.otf")
+}
+
+@font-face {
+    font-family: "Providence"; 
+    src: url("./fonts/Providence.ttf")
+}
+
+body {
+    background-image: url("./img/bg-sky.jpg");
+    background-color: aqua;
+}
+
+.header_cloud {
+    background-image: url("./img/angry-cloud.png");
+    height: 325px;
+    width: 760px;
+    position: absolute;
+}
+
+.header__nav {
+    background-image: url("./img/bg-header.png");
+    height: 300px;
+    
+}
+
+.header__nav-menu {
+   position: absolute;
+    width: 600px;
+    height: 200px;
+    right: 120px;
+}
+.header__nav-menu li{
+    display: inline-block;
+    font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+    color: white;
+    font-size: 25px;
+}
+.header__nav-menu li::before {
+    content: "";
+    width: 100px;
+    height: 100px;
+    color: #067686;
+    border-radius: 50%;
+    display: block;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1300px;
+}
+
+.main__rohnin_container {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.main__rohnin_container-img {
+    width: 100%;
+    height: 100%
+}
+
+.main__rohnin_logo {
+    position: absolute;
+    right: 200px;
+}
+
+.main_game_name {
+    font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+    color: white;
+    font-size: 150px;
+}
+
+.game_name-text {
+    font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+    color: #067686;
+    font-size: 25px;
+}
+.main__rohnin_logo-play_butt {
+    width: 300px;
+    height: 100px;
+    background-color: #241f1f;
+    color: white;
+}
+
+.main__story-container{
+    width: 500px;
+    font-family: Providence, Helvetica, Arial,sans-serif;
+    color: #338893;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.cloud_img {
+    width: 100%;
+    height: 100%;
+}
+
+.main__author-container {
+    display: flex;
+   
+}
+.main__author-photo {
+    background-image: url(../landing/img/portret.png);
+    width: 300px;
+    height: 300px;
+}
+
+.main__author-text {
+    margin:30px 0 70px 70px;
+    width: 400px;
+    font-family: Providence, Helvetica, Arial,sans-serif;
+    color: 4624183;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 20px;
+    
+}
+
+.grass_img {
+    background-image: url("../landing/img/bg-grass.png");
+    width: 100%;
+    height: 290px;
+    
+    padding-top: 150px;
+    background-repeat: repeat-x;
+
+}
+
+.bushes_img {
+  
+    background-image: url(../landing/img/foliage.png);
+    height: 300px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.main__screenshots-container {
+    display: flex;
+
+
+}
+
+.screens_one {
+    background-image: url(../landing/img/scren_one.jpg);
+    height: 800px;
+    width: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 30px;
+ 
+}
+
+.screens_two{
+    background-image: url(../landing/img/scren_one.jpg);
+    height: 800px;
+    width: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 30px;
+ 
+}
+
+
+.screens_three {
+    background-image: url(../landing/img/scren_one.jpg);
+    height: 800px;
+    width: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 30px;
+ 
+}
+
+
+
+

@@ -1,4 +1,6 @@
 import style from "./_scss/main.scss";
+import landing from "./landing.html";
+
 import loginHtml from './components/login/loginHtml.html';
 import mathTaskHtml from './components/tasks/MathTask/math.html';
 import playerHtml from './components/player/playerHtml.html';
@@ -14,6 +16,8 @@ import * as monsterJS from './components/monster/monsterJS.js';
 import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
 import * as tranclateEngRu from './components/tasks/TranslateEngToRus/TranslateEngToRus.js';
 import * as battleJS from './components/battle/battleJS.js';
+
+import * as levelUp from './sounds/new_level.mp3';
 
 
 
@@ -187,7 +191,7 @@ class Game {
 
     change_monster_health() {
         console.log(this.monster, this.monster.health);
-        this.monster.health-=20;
+        this.monster.health-=100;
         document.querySelector(".monster_health").innerHTML=this.monster.health;
         if(this.monster.health<=0) {
             setTimeout (() => {this.add_level()}, 4000);
@@ -202,10 +206,14 @@ class Game {
         document.querySelector(".weapon_container").style.display="none";
         document.querySelector(".fight_button").style.display="none";
         modalwindow.innerHTML = new_level;
+        let levelUp=new Audio('sounds/new_level.mp3');
+            levelUp.play();
         setTimeout(() => { 
             modalwindow.replaceWith();
+            
             this.add_monster();
-        }, 4000);
+
+        }, 2500);
     }
 
     game_over () {

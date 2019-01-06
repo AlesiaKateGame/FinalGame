@@ -1,20 +1,10 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const AudioSpritePlugin = require("webpack-audio-sprite-plugin");
+
 
 module.exports = {
     module: {
     rules: [ 
-      // { 
-      //   test: /\.mp3$/, 
-      //   use: [
-      //     {
-      //       loader: AudioSpritePlugin.loader(),
-      //       options: { name: 'img/[name].[ext]' }
-      //     }
-      //   ]
-        
-      // },     
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -22,10 +12,23 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-      
+      {
+        test: /landing.html$/,
+        use: [
+          { 
+            loader: 'file-loader',
+            options: { name: '[name].[ext]' }
+          }
+        ]
+      },
       {
         test: /\.html$/,
-        use: [{ loader: "html-loader", options: { minimize: true } }]
+        use: [
+          { 
+            loader: "html-loader", 
+            options: { minimize: true } 
+          },
+        ]
       },
       {
         test: /\.(ogg|mp3|wav|mpe?g)$/i,
