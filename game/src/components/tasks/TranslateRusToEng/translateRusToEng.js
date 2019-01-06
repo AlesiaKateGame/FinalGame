@@ -1,9 +1,8 @@
-import jsonFile1 from './WordTranslateEngToRus/wordTranslateEngToRus1.json';
-import jsonFile2 from './WordTranslateEngToRus/wordTranslateEngToRus2.json';
-import jsonFile3 from './WordTranslateEngToRus/wordTranslateEngToRus3.json';
-import jsonFile4 from './WordTranslateEngToRus/wordTranslateEngToRus4.json';
-import jsonFile5 from './WordTranslateEngToRus/wordTranslateEngToRus5.json';
-        
+import jsonFile1 from './WordTranslateRusToEng/wordsTranslateRusToEng1.json';
+import jsonFile2 from './WordTranslateRusToEng/wordsTranslateRusToEng2.json';
+import jsonFile3 from './WordTranslateRusToEng/wordsTranslateRusToEng3.json';
+import jsonFile4 from './WordTranslateRusToEng/wordsTranslateRusToEng4.json';
+import jsonFile5 from './WordTranslateRusToEng/wordsTranslateRusToEng5.json';
 
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 
@@ -24,8 +23,8 @@ function jsonFunc (jsonFile) {
 }
 
 
-     export function translateEngToRusTask (level, clear_modal) {
-    
+     export function translateRusToEngTask (level, clear_modal) {
+
         if (level === 1) {
             jsonFunc(jsonFile1);
         } else if (level === 2) {
@@ -37,12 +36,12 @@ function jsonFunc (jsonFile) {
         } else if (level === 5) {
             jsonFunc(jsonFile5);
         }
- 
+        
         const gameLevel = document.querySelector('#task-Level__h1');
         gameLevel.textContent = 'Уровень ' + level;
     
         const titleForQuestion = document.querySelector('#task-Level__h3');
-        titleForQuestion.textContent = 'Переведи слово на русский язык: ' +  randomWord;
+        titleForQuestion.textContent = 'Переведи слово на английский язык: ' +  randomWord;
     
         const input = document.querySelector('#task-Level__input');
         let answer_button = document.querySelector('.task-Level__answer');
