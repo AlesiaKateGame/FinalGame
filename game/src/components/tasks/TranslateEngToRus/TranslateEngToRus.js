@@ -10,9 +10,9 @@ import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 
-const array;
-const numberOfObject;
-const randomObject, randomWord, randomWordTranslation;
+let array;
+let numberOfObject;
+let randomObject, randomWord, randomWordTranslation;
 
 
 function jsonFunc (jsonFile) {

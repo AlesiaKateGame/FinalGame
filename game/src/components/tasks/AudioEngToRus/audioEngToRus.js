@@ -1,18 +1,13 @@
 import jsonFile1 from './WordAudioEngToRus/wordAudioEngToRus1.json';
-import jsonFile2 from './WordAudioEngToRus/wordAudioEngToRus2.json';
+// import jsonFile2 from './WordAudioEngToRus/wordAudioEngToRus2.json';
 
-function playSound() {
-    let sound = document.getElementById("audio");
-    sound.play();
-}
-
+import allSaunds from './importAllSound.js';
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
-
 import * as vars from '../MathTask/MathJS/commonVariables';
 
-const array;
-const numberOfObject;
-const randomObject, randomWord, randomWordSound;
+let array;
+let numberOfObject;
+let  randomObject, randomWord, randomWordSound;
 
 function jsonFunc (jsonFile) {
     array = jsonFile['words'];
@@ -42,22 +37,20 @@ export function translateEngToRusTask (level, clear_modal) {
     const titleForQuestion = document.querySelector('#task-Level__h3');
     titleForQuestion.textContent = 'Переведи слово на русский язык ';
 
-    const audio = document.querySelector('audio');
+    const audio = document.querySelector('#audio');
     audio.src = randomWordSound;
-    
-    const replayButton = document.querySelector('replayButton');
-    replayButton.addEventListener('click', ()=>{playSound()});
 
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
-    answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
+    answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
 
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {
-        return option == answer;
+        return option.toLowerCase() == answer.toLowerCase();
       }
      // правильный результат
+
     if (randomWord.some(isCorrect)) {
         document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomCongratulationTitle+"</h1>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
