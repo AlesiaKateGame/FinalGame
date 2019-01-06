@@ -1,17 +1,17 @@
-import jsonFile1 from './WordTranslateRusToEng/wordsTranslateRusToEng1.json';
-import jsonFile2 from './WordTranslateRusToEng/wordsTranslateRusToEng2.json';
-import jsonFile3 from './WordTranslateRusToEng/wordsTranslateRusToEng3.json';
-import jsonFile4 from './WordTranslateRusToEng/wordsTranslateRusToEng4.json';
-import jsonFile5 from './WordTranslateRusToEng/wordsTranslateRusToEng5.json';
+import jsonFile1 from './WordTranslateRusToEng/wordTranslateRusToEng1.json';
+import jsonFile2 from './WordTranslateRusToEng/wordTranslateRusToEng2.json';
+import jsonFile3 from './WordTranslateRusToEng/wordTranslateRusToEng3.json';
+import jsonFile4 from './WordTranslateRusToEng/wordTranslateRusToEng4.json';
+import jsonFile5 from './WordTranslateRusToEng/wordTranslateRusToEng5.json';
 
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 
-const array;
-const numberOfObject;
-const randomObject, randomWord, randomWordTranslation;
+let array;
+let numberOfObject;
+let randomObject, randomWord, randomWordTranslation;
 
 
 function jsonFunc (jsonFile) {
@@ -21,6 +21,7 @@ function jsonFunc (jsonFile) {
     randomWord = randomObject['word'];
     randomWordTranslation = randomObject['translation'];
 }
+
 
 
      export function translateRusToEngTask (level, clear_modal) {
@@ -53,7 +54,7 @@ function jsonFunc (jsonFile) {
             return option == answer;
           }
          // правильный результат
-        if (randomWordTranslation.some(isCorrect)) {
+        if ([randomWordTranslation].some(isCorrect)) {
             document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomCongratulationTitle+"</h1>";
             let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
             aplodisment.play();

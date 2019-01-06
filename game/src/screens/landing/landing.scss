@@ -37,21 +37,40 @@ body {
             position: absolute;
             width: 600px;
             height: 200px;
-            right: 120px;
+            right: 0;
+            margin-top: 60px;   
         }
         .header__nav-menu li {
             display: inline-block;
             font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
             color: white;
             font-size: 25px;
+            margin-left: 50px;
+            position: relative;
+            cursor: pointer;
+            text-shadow: (1px 1px 5px rgb(46, 45, 45) );
         }
+        .header__nav-menu li:hover{
+            color: #067686;
+        }
+
         .header__nav-menu li::before {
             content: "";
-            width: 100px;
-            height: 100px;
-            color: #067686;
-            border-radius: 50%;
             display: block;
+            position: absolute;
+            top: 10px;
+            left: -33px;
+            width: 10px;
+            height: 10px;
+            background-color: #067686;
+            border-radius: 50%;
+            text-shadow: (1px 1px 5px rgb(46, 45, 45) );
+        
+            
+            
+        }
+        .header__nav-menu li:first-child::before {
+            display: none;
         }
     }
     
@@ -62,21 +81,23 @@ body {
             width: 100%;
             display: flex;
             margin: 0 auto;
-            justify-content: space-around;
+            justify-content: flex-start;
+
             .main__logo_container-img {
                 background-image: url("../screens/landing/img/tablet-preview.png");
-                width: 1490px;
+                width: 80vw;
                 height: 870px;
                 background-size: contain;
                 background-repeat: no-repeat;
             }
             .main__logo {
                 position: absolute;
-                right: 375px;
+                right: 10%;
                 .main_game_name {
                     font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
                     color: white;
                     font-size: 150px;
+                    text-shadow: (1px 1px 5px rgb(110, 110, 110) );
                 }
                 .game_name-text {
                     font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
@@ -111,6 +132,7 @@ body {
                 font-size: 45px;
                 color: white;
                 text-shadow: #241f1f;
+                text-shadow: (1px 1px 5px rgb(46, 45, 45) );
             }
 
             .main__story-text {
@@ -119,7 +141,7 @@ body {
                 font-family: Providence, Helvetica, Arial,sans-serif;
                 font-size: 30px;
                 color: white;
-                text-shadow: #241f1f;
+                text-shadow: (1px 1px 5px rgb(46, 45, 45) );
                 text-align: left;
                 }
 
