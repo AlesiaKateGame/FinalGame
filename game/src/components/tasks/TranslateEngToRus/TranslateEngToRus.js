@@ -11,9 +11,8 @@ import * as vars from '../MathTask/MathJS/commonVariables';
 
 
 const array;
-let numberOfObject;
-const randomObject, randomWord;
-let randomWordTranslation;
+const numberOfObject;
+const randomObject, randomWord, randomWordTranslation;
 
 
 function jsonFunc (jsonFile) {
@@ -43,7 +42,7 @@ function jsonFunc (jsonFile) {
         gameLevel.textContent = 'Уровень ' + level;
     
         const titleForQuestion = document.querySelector('#task-Level__h3');
-        titleForQuestion.textContent = 'Переведи слово: ' +  randomWord;
+        titleForQuestion.textContent = 'Переведи слово на русский язык: ' +  randomWord;
     
         const input = document.querySelector('#task-Level__input');
         let answer_button = document.querySelector('.task-Level__answer');
