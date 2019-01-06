@@ -13,21 +13,21 @@ module.exports = {
         }
       },
       {
-        test: /landing.html$/,
-        use: [
-          { 
-            loader: 'file-loader',
-            options: { name: '[name].[ext]' }
-          }
-        ]
-      },
-      {
         test: /\.html$/,
         use: [
           { 
             loader: "html-loader", 
             options: { minimize: true } 
           },
+        ]
+      },
+      {
+        test: /landing.html$/,
+        use: [
+          { 
+            loader: 'file-loader',
+            options: { name: '[name].[ext]' }
+          }
         ]
       },
       {
@@ -39,7 +39,15 @@ module.exports = {
           },
         }],
       },
-   
+      {
+        test: /\.(otf|ttf)$/i,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: './fonts/[name].[ext]',
+          },
+        }],
+      },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [

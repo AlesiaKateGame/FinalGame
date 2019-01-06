@@ -1,0 +1,263 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: "DK_Rabbit"; 
+    src: url("../screens/landing/fonts/DK_Rabbit.otf")
+}
+
+@font-face {
+    font-family: "Providence"; 
+    src: url("../screens/landing/fonts/Providence.ttf")
+}
+
+body {
+    background-image: url("../screens/landing/img/bg-sky.jpg");
+    background-color: aqua;
+    .header_cloud {
+        background-image: url("../screens/landing/img/angry-cloud.png");
+        height: 325px;
+        width: 760px;
+        position: absolute;
+    }
+    .flag_img {
+        background-image: url("../screens/landing/img/bud_team.png");
+        height: 188px;
+        width: 181px;
+        position: absolute;
+        left: 450px;
+    }
+    
+    .header__nav {
+        background-image: url("../screens/landing/img/bg-header.png");
+        height: 300px;
+        .header__nav-menu {
+            position: absolute;
+            width: 600px;
+            height: 200px;
+            right: 120px;
+        }
+        .header__nav-menu li {
+            display: inline-block;
+            font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+            color: white;
+            font-size: 25px;
+        }
+        .header__nav-menu li::before {
+            content: "";
+            width: 100px;
+            height: 100px;
+            color: #067686;
+            border-radius: 50%;
+            display: block;
+        }
+    }
+    
+    .wrapper {
+        margin: 0 auto;
+        width: 1300px;
+        .main__logo_container {
+            width: 100%;
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-around;
+            .main__logo_container-img {
+                background-image: url("../screens/landing/img/tablet-preview.png");
+                width: 1490px;
+                height: 870px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .main__logo {
+                position: absolute;
+                right: 375px;
+                .main_game_name {
+                    font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+                    color: white;
+                    font-size: 150px;
+                }
+                .game_name-text {
+                    font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+                    color: #067686;
+                    font-size: 25px;
+                }
+                .main__play_butt {
+                    margin: 30px;
+                    width: 300px;
+                    padding: 45px 0;
+                    cursor: pointer;
+                    background-color: #241f1f;
+                    border-radius: 20px;
+                    text-align: center;
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+        .main__story-container{
+            width: 490px;
+            color: #338893;
+            font-size: 21px;
+            font-weight: 100;
+            margin-left: 210px;
+            .main__story-title{
+                font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+                font-size: 45px;
+                color: white;
+                text-shadow: #241f1f;
+            }
+
+            .main__story-text {
+                font-family: Providence, Helvetica, Arial,sans-serif;
+                h3 {
+                font-family: Providence, Helvetica, Arial,sans-serif;
+                font-size: 30px;
+                color: white;
+                text-shadow: #241f1f;
+                text-align: left;
+                }
+
+            }
+        }
+
+        .cloud_img {
+            background-image: url("../screens/landing/img/cloud-throne.png");
+            width: 1060px;
+            height: 510px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 20px;
+        }
+        
+        .main__author-container {
+            display: flex;
+            margin-left: 160px;
+           
+        }
+        .main__author-photo {
+            background-image: url("../screens/landing/img/portret.png");
+            width: 300px;
+            height: 300px;
+        }
+        
+        .main__author-text {
+            margin:30px 0 70px 70px;
+            width: 400px;
+            font-family: Providence, Helvetica, Arial,sans-serif;
+            color: #46281c;
+            font-size: 21px;
+           h3 {
+            font-family: Providence, Helvetica, Arial,sans-serif;
+            color: #46281c;
+            font-size: 35px;
+           }
+            
+        }
+    }
+    
+    
+    
+    .grass_img {
+        position: relative;
+        background-image: url("../screens/landing/img/bg-grass.png");
+        width: 100%;
+        height: 290px;
+        padding-top: 150px;
+        background-repeat: repeat-x;
+        margin-bottom: 110px;
+        background-position: right;
+
+        .bg_landskape {
+            background-image: url("../screens/home/img/castle.png");
+            height: 449px;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -78%;
+            left: 3%;
+            
+        }
+        .bushes_img {
+            background-image: url("../screens/landing/img/foliage.png");
+            position: relative;
+            left: 10%;
+            height: 300px;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+       }
+        .monster_land {
+            background-image: url("../screens/landing/img/monster_land.png");
+            height: 371px;
+            width: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -46%;
+            right: -78%;
+           
+        }
+    
+    }
+    
+    .main__screenshots {
+        
+        .main__screenshots-title {
+            font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+            font-size: 48px;
+            color: #b13219;
+        }
+        .main__screenshots-container {
+            display: flex;
+            justify-content: space-between;
+            .screens_one {
+                background-image: url("../screens/landing/img/scren_one.jpg");
+                height: 600px;
+                width: 400px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: 30px;
+            }
+            
+            .screens_two{
+                background-image: url("../screens/landing/img/scren_one.jpg");
+                height: 600px;
+                width: 400px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: 30px;
+            
+            }
+            
+            .screens_three {
+                background-image: url("../screens/landing/img/scren_one.jpg");
+                height: 600px;
+                width: 400px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: 30px;
+            
+            }
+        }
+    }
+    
+    .lending_footer {
+        width: 100%;
+        height: 150px;
+        background-color: #241f1f;
+    }
+    
+}
+
+
+
+
+
+
