@@ -17,7 +17,7 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function translateEngToRusTask (level, clear_modal) {
+export function audioEngToEngTask (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
