@@ -1,7 +1,7 @@
 import jsonFile1 from './WordAudioRusToEng/wordAudioRusToEng1.json';
 import jsonFile2 from './WordAudioRusToEng/wordAudioRusToEng2.json';
 
-import allSaunds from './importAllSound.js';
+import allSaundsRu from './importAllSoundRu.js';
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
