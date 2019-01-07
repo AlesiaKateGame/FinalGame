@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+// @font-face {
+//     font-family: "Providence"; 
+//     src: url("./fonts/Providence.ttf")
+// }
+
 html {
     width: 100%;
     height: 100%;
@@ -12,6 +17,13 @@ body {
     height: 100%;
     &.game {
         overflow: hidden;
+        background-image: unset;
+        background-color: #555;
+        transition: all 0.5s;
+
+        &.loaded {
+            background-color: #82addb;
+        }
     }
 
     .modal-body {
@@ -120,20 +132,39 @@ body {
         left: 60%;
         top: 10%;
         display: none;
+        .inner_border {
+            border: 8px solid #ce7146;
+            width: 310px;
+            border-radius: 50px;
+            height: 30px;
+            box-shadow: 0px 7px 1px 0px rgba(74,35,18,1);
+            .bottom_border {
+                width: 310px;
+                height: 31px;
+                background-color: #7a2e14;
+                border-radius: 25px;
+              
+            }
+        
+        }
         .monster_health {
             width: 300px;
             height: 20px;
-           background-color: green;
-           color: white;
-           border-radius: 20px;
-           padding: 5px;
-           font-weight: bold;
-           transition: width 1s;
+            background: linear-gradient(to bottom,
+            rgba(246,253,251,1) 0%, rgba(167,245,0,1) 38%,
+            rgba(108,133,20,1) 74%, rgba(78,87,7,1) 100%);
+            color: black;
+            border-radius: 20px;
+            padding: 6px;
+            font-weight: bold;
+            transition: width 1s;
+            box-shadow: 0px 4px 1px 0px rgb(131, 67, 40) inset;
         }
         
         .monster_name {
             font-size: 20px;
             margin: 5%;
+            font-family: Providence;
         }
     }
 
@@ -142,21 +173,40 @@ body {
         top: 10%;
         left: 20%;
         display: none;
-           .player_name {
-            font-size: 20px;
-            margin: 5%;
+        .inner_border {
+            border: 8px solid #ce7146;
+            width: 310px;
+            border-radius: 50px;
+            height: 30px;
+            box-shadow: 0px 7px 1px 0px rgba(74,35,18,1);
+            .bottom_border {
+                width: 310px;
+                height: 31px;
+                background-color: #7a2e14;
+                border-radius: 25px;
+              
+            }
+        
         }
         
         .player_health {
-           width: 310px;
-           height: 20px;
-           background-color: green;
-           color: white;
-           border-radius: 20px;
-           padding: 5px;
-           font-weight: bold;
-           transition: width 1s;
+            width: 300px;
+            height: 20px;
+            background: linear-gradient(to bottom,
+            rgba(246,253,251,1) 0%, rgba(167,245,0,1) 38%,
+            rgba(108,133,20,1) 74%, rgba(78,87,7,1) 100%);
+            color: black;
+            border-radius: 20px;
+            padding: 6px;
+            font-weight: bold;
+            transition: width 1s;
+            box-shadow: 0px 4px 1px 0px rgb(131, 67, 40) inset;
         
+        }
+
+        .player_name {
+            font-size: 20px;
+            margin: 5%;
         }
     }
     
@@ -172,7 +222,13 @@ body {
         height: 170px;
         cursor: pointer;
         z-index: 5000px;
-       
+        transition: 0.5s;
+    }
+     
+
+    .fight_button:hover{
+        transform: scale(0.95, 0.95);
+        
     }
 
     .weapon_container {
@@ -190,6 +246,11 @@ body {
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
+            &.press {
+                opacity: 1;
+                box-shadow: 0 0 6px 3px #FFF;
+                border-radius: 50%;
+            } 
         }
         .weapon_container-fire:hover {
             transform: scale(1.1, 1.1)
@@ -201,10 +262,16 @@ body {
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
+            &.press{
+                opacity: 1;
+                box-shadow: 0 0 6px 3px #FFF;
+                border-radius: 50%;
+            } 
         }
         .weapon_container-light:hover {
             transform: scale(1.1, 1.1)
         }
+        
 
         .weapon_container-poison {
             background-image: url("../components/battle/img/poison.png");
@@ -213,6 +280,11 @@ body {
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
+            &.press {
+                opacity: 1;
+                box-shadow: 0 0 6px 3px #FFF;
+                border-radius: 50%;
+            } 
         }
         .weapon_container-poison:hover {
             transform: scale(1.1, 1.1)
@@ -272,5 +344,17 @@ body {
     }
 }
 
+.preload_images {
+    position: absolute;
+    top: 0;
+    left: 10000px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+
+    * {
+        position: absolute;
+    }
+}
 
   

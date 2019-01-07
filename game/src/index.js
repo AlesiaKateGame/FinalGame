@@ -11,6 +11,8 @@ import * as new_level from './components/new_level/new_levelHtml.html';
 import * as translateEngToRus from './components/tasks/TranslateEngToRus/TranslateEngToRus.html';
 import * as translateRusToEngHtml from './components/tasks/TranslateRusToEng/translateRusToEng.html';
 
+import * as homeHtml from './screens/home/homeHtml.html';
+
 import * as audioEngToRusHtml from './components/tasks/AudioEngToRus/audioEngToRus.html';
 
 import * as choose_player from './components/player/choose_player.js';
@@ -29,7 +31,7 @@ import * as levelUp from './sounds/new_level.mp3';
 class Game {
     constructor () {
         this.player = null;
-        this.monster = null;
+        this.monster = {};
         this.level = 1;
         this.bindedClearModal = this.clearModal.bind(this)
     }
@@ -40,13 +42,6 @@ class Game {
             modalwindow.className = "modal-body";
             document.body.appendChild(modalwindow);
         }
-    }
-
-    addPreloader() {
-        this.addModalWindow();
-        let modalwindow = document.querySelector('.modal-body');
-        modalwindow.innerHTML = preloader;
-
     }
 
     show_login () {
@@ -97,19 +92,26 @@ class Game {
 
         this.add_player();
         this.add_monster();
-       
-        // 
+    
     }
 
-
     choose_weapon(e) {
-       
+            let weapon_container=document.querySelector(".weapon_container");
         if (e.target.classList.contains("weapon_container-fire")) {
             this.player.weapon="fire";
+            let weaponArr=Array.from(weapon_container.getElementsByClassName("press"));
+            weaponArr.forEach((v)=>v.classList.remove("press"));
+            e.target.classList.add("press");
         }else if (e.target.classList.contains("weapon_container-poison"))
             {this.player.weapon="poison";
+            let weaponArr=Array.from(weapon_container.getElementsByClassName("press"));
+            weaponArr.forEach((v)=>v.classList.remove("press"));
+            e.target.classList.add("press");
         }else if (e.target.classList.contains("weapon_container-light")) {
             this.player.weapon="light";
+            let weaponArr=Array.from(weapon_container.getElementsByClassName("press"));
+            weaponArr.forEach((v)=>v.classList.remove("press"));
+            e.target.classList.add("press");
         }
     }
 
@@ -136,10 +138,11 @@ class Game {
     }
 
     add_monster() {
-        this.monster = {
-            "health": 100,
-        }
+        this.monster.health = 100;
+        this.change_monster_health(0);
         let scene_monster=document.querySelector('.scene_container-monster');
+        scene_monster.classList.remove("dead");
+        scene_monster.classList.add("start");
         scene_monster.innerHTML=monsterHtml;
         monsterJS.startMonster();
     };
@@ -179,7 +182,7 @@ class Game {
 
     player_hit() {
         document.querySelector(".weapon_container").style.display="flex";
-        this.change_monster_health();
+        this.change_monster_health(20);
         if (this.player.weapon=="fire") {
             battleJS.fire_hit();
         }else if (this.player.weapon=="poison") {
@@ -192,18 +195,31 @@ class Game {
     change_player_health() {
         this.player.health-=20;
         document.querySelector(".player_health").innerHTML=this.player.health;
+        document.querySelector(".player_health").style.width=this.player.health*3+"px";
         if(this.player.health<=0) {
             this.game_over ();
         }
      
     }
 
-    change_monster_health() {
+    change_monster_health(num) {
         console.log(this.monster, this.monster.health);
-        this.monster.health-=100;
-        document.querySelector(".monster_health").innerHTML=this.monster.health;
+        this.monster.health -= +num;
+        document.querySelector(".monster_health").innerHTML = this.monster.health;
+        document.querySelector(".monster_health").style.width = this.monster.health * 3 + "px";
+        
+        
+        
         if(this.monster.health<=0) {
-            setTimeout (() => {this.add_level()}, 4000);
+            setTimeout(()=>{
+                document.querySelector('.scene_container-monster').classList.add("dead");
+            },1000)
+            setTimeout (() => {
+                let scene_monster=document.querySelector('.scene_container-monster');
+                scene_monster.classList.remove("start");
+                this.add_level();
+
+            },2700);
         }
     }
 
@@ -216,11 +232,13 @@ class Game {
         document.querySelector(".fight_button").style.display="none";
         modalwindow.innerHTML = new_level;
         let levelUp=new Audio('sounds/new_level.mp3');
-            levelUp.play();
+        levelUp.play();
         setTimeout(() => { 
             modalwindow.replaceWith();
             
             this.add_monster();
+            document.querySelector(".weapon_container").style.display="flex";
+            document.querySelector(".monster_health").style.width="flex";
 
         }, 2500);
     }
@@ -285,4 +303,11 @@ class Game {
 
 }
 let game = new Game();
-game.show_login();
+
+window.addEventListener("load", ()=>{
+    document.querySelector(".lds-roller").replaceWith();
+
+    document.body.innerHTML += homeHtml
+    document.body.classList.add('loaded');
+    game.show_login();
+})
