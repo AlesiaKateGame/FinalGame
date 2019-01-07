@@ -8,15 +8,15 @@ let mathExpressionLevel;
 export function mathTask (level, clear_modal) { 
 
     if (level === 1) {
-        mathExpressionLevel = vars.randomSingleDigit1 + vars.mathOperationPlusMinus[getRandomInArray(vars.mathOperationPlusMinus)] + vars.randomSingleDigit2;
+        mathExpressionLevel = getRandomInRange(0, 9) + vars.mathOperationPlusMinus[getRandomInArray(vars.mathOperationPlusMinus)] + getRandomInRange(0, 9);
     } else if (level === 2) {
-        mathExpressionLevel = vars.randomSingleDigit1 + vars.mathOperationMultDiv[getRandomInArray(vars.mathOperationMultDiv)] + vars.randomSingleDigitExceptZero;  
+        mathExpressionLevel = getRandomInRange(0, 9) + vars.mathOperationMultDiv[getRandomInArray(vars.mathOperationMultDiv)] + getRandomInRange(1, 9);  
     } else if (level === 3) {
-        mathExpressionLevel = vars.randomTwoDigitNumber + vars.mathOperationPlusMinus[getRandomInArray(vars.mathOperationPlusMinus)] + vars.randomTwoDigitNumberSinceZero;  
+        mathExpressionLevel = getRandomInRange(10, 99) + vars.mathOperationPlusMinus[getRandomInArray(vars.mathOperationPlusMinus)] + getRandomInRange(0, 99);  
     } else if (level === 4) {
-        mathExpressionLevel = vars.randomTwoDigitNumber + vars.mathOperationMultDiv[getRandomInArray(vars.mathOperationMultDiv)] + vars.randomSingleDigitExceptZero;  
+        mathExpressionLevel = getRandomInRange(10, 99) + vars.mathOperationMultDiv[getRandomInArray(vars.mathOperationMultDiv)] + getRandomInRange(1, 9);  
     } else if (level === 5) {
-        mathExpressionLevel = vars.randomThreeDigitNumber + vars.randomMathOperation[getRandomInArray(vars.randomMathOperation)] + vars.randomSingleDigitExceptZero;  
+        mathExpressionLevel = getRandomInRange(100, 999) + vars.randomMathOperation[getRandomInArray(vars.randomMathOperation)] + getRandomInRange(1, 9);  
     }
 
     const gameLevel = document.querySelector('#task-Level__h1');
