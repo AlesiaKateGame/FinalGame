@@ -20,6 +20,7 @@ import * as tranclateEngRu from './components/tasks/TranslateEngToRus/TranslateE
 import * as translateRusToEngJs from './components/tasks/TranslateRusToEng/translateRusToEng.js';
 import * as audioEngToRus from './components/tasks/AudioEngToRus/audioEngToRus.js';
 import * as battleJS from './components/battle/battleJS.js';
+import * as lendingjs from './screens/landing/landing.js';
 import * as levelUp from './sounds/new_level.mp3';
 
 

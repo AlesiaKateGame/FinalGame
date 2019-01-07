@@ -12,10 +12,14 @@
     font-family: "Providence"; 
     src: url("../screens/landing/fonts/Providence.ttf")
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-image: url("../screens/landing/img/bg-sky.jpg");
     background-color: aqua;
+    transition: all 1s;
     .header_cloud {
         background-image: url("../screens/landing/img/angry-cloud.png");
         height: 325px;
@@ -38,23 +42,32 @@ body {
             width: 600px;
             height: 200px;
             right: 0;
-            margin-top: 60px;   
+            margin-top: 60px; 
+            position: fixed;
+            z-index: 10000; 
         }
         .header__nav-menu li {
             display: inline-block;
-            font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
-            color: white;
-            font-size: 25px;
             margin-left: 50px;
             position: relative;
             cursor: pointer;
-            text-shadow: (1px 1px 5px rgb(46, 45, 45) );
+
         }
-        .header__nav-menu li:hover{
+
+        .header__nav-menu li a {
+            color: white;
+            font-family: DK_Rabbit, Helvetica, Arial,sans-serif;
+            font-size: 25px;
+            
+            text-shadow: (1px 1px 5px rgb(46, 45, 45) );
+            text-decoration: none;
+        }
+
+        .header__nav-menu li a:hover{
             color: #067686;
         }
 
-        .header__nav-menu li::before {
+        .header__nav-menu li ::before {
             content: "";
             display: block;
             position: absolute;
@@ -105,18 +118,49 @@ body {
                     font-size: 25px;
                 }
                 .main__play_butt {
+                    display: block;
                     margin: 30px;
                     width: 300px;
                     padding: 45px 0;
                     cursor: pointer;
-                    background-color: #241f1f;
+                    border: 2px solid #b02f18;
                     border-radius: 20px;
                     text-align: center;
-                    a {
-                        text-decoration: none;
+                    text-decoration: none;
+                    color: #b02f18;
+                    font-size: 30px;
+                    font-weight: bold;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.1);
+                    position:relative;
+                   
+                    &:before {
+                        -webkit-transition:0.5s all ease;
+                        transition:0.5s all ease;
+                        position:absolute;
+                        top:0;
+                        left:50%;
+                        right:50%;
+                        bottom:0;
+                        opacity:0;
+                        content:'';
+                        background-color:#b02f18;
                         color: white;
-                        font-size: 30px;
+                        z-index:-2;
+                        border-radius: 20px;
                     }
+                    &:hover {
+                        &:before {
+                        -webkit-transition:0.5s all ease;
+                        transition:0.5s all ease;
+                        left:0;
+                        right:0;
+                        opacity:1;
+                      
+                        }
+                    }
+                }
+                .main__play_butt:hover {
+                    color: white;
                 }
             }
         }
@@ -194,6 +238,7 @@ body {
         background-repeat: repeat-x;
         margin-bottom: 110px;
         background-position: right;
+       
 
         .bg_landskape {
             background-image: url("../screens/home/img/castle.png");
@@ -204,6 +249,7 @@ body {
             position: absolute;
             top: -78%;
             left: 3%;
+            
             
         }
         .bushes_img {
