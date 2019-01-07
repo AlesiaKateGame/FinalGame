@@ -1,7 +1,7 @@
-import jsonFile1 from './WordAudioRusToEng/wordAudioRusToEng1.json';
-import jsonFile2 from './WordAudioRusToEng/wordAudioRusToEng2.json';
+import jsonFile1 from './WordAudioEngToEng/wordAudioEngToEng1.json';
+import jsonFile2 from './WordAudioEngToEng/wordAudioEngToEng2.json';
 
-import allSaundsRu from './importAllSoundRu.js';
+import allSaunds from '../AudioEngToRus/importAllSound.js';
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
@@ -17,7 +17,7 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function audioEngToRusTask (level, clear_modal) {
+export function translateEngToRusTask (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
@@ -35,7 +35,7 @@ export function audioEngToRusTask (level, clear_modal) {
     gameLevel.textContent = 'Уровень ' + level;
 
     const titleForQuestion = document.querySelector('#task-Level__h3');
-    titleForQuestion.textContent = 'Переведи слово на английский язык ';
+    titleForQuestion.textContent = 'Напиши слово на английском языке ';
 
     const audio = document.querySelector('#audio');
     audio.src = randomWordSound;
