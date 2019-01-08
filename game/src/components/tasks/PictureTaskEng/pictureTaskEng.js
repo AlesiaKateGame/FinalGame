@@ -10,7 +10,7 @@ import * as vars from '../MathTask/MathJS/commonVariables';
 
 let array;
 let numberOfObject;
-let  randomObject, randomWord, randomWordSound;
+let  randomObject, randomWord, randomWordPicture, randomWordSound;
 
 function jsonFunc (jsonFile) {
     array = jsonFile['words'];

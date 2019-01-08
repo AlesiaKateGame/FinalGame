@@ -1,5 +1,8 @@
 import jsonFile1 from './WordAudioRusToRus/wordAudioRusToRus1.json';
 import jsonFile2 from './WordAudioRusToRus/wordAudioRusToRus2.json';
+import jsonFile3 from './WordAudioRusToRus/wordAudioRusToRus3.json';
+import jsonFile4 from './WordAudioRusToRus/wordAudioRusToRus4.json';
+import jsonFile5 from './WordAudioRusToRus/wordAudioRusToRus5.json';
 
 
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
@@ -23,13 +26,13 @@ export function audioRusToRusTask (level, clear_modal) {
         jsonFunc(jsonFile1);
     } else if (level === 2) {
         jsonFunc(jsonFile2);
-    } /*else if (level === 3) {
+    } else if (level === 3) {
         jsonFunc(jsonFile3);
     } else if (level === 4) {
         jsonFunc(jsonFile4);
     } else if (level === 5) {
         jsonFunc(jsonFile5);
-    }*/
+    }
 
     const gameLevel = document.querySelector('#task-Level__h1');
     gameLevel.textContent = 'Уровень ' + level;

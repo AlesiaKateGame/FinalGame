@@ -340,7 +340,7 @@ class Game {
         audioRuJs.audioRusToRusTask(this.level, this.bindedClearModal);
     }
 
-    showWritePictur () {
+    showWritePicture() {
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = pictureTaskEng;

@@ -1,12 +1,9 @@
+
+@import '../screens/landing/fonts/Providence.ttf';
 * {
     padding: 0;
     margin: 0;
 }
-
-// @font-face {
-//     font-family: "Providence"; 
-//     src: url("./fonts/Providence.ttf")
-// }
 
 html {
     width: 100%;
@@ -164,7 +161,7 @@ body {
         .monster_name {
             font-size: 20px;
             margin: 5%;
-            font-family: Providence;
+            font-family: Providence, Arial, Helvetica, sans-serif;
         }
     }
 

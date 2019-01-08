@@ -52,3 +52,4 @@ import rhinoceros from "./PictureOfWord/Level5/rhinoceros.jpg";
 import sparrow from "./PictureOfWord/Level5/sparrow.jpg";
 import swallow from "./PictureOfWord/Level5/swallow.jpg";
 import woodpecker from "./PictureOfWord/Level5/woodpecker.jpg";
+import chicken from "./PictureOfWord/Level1/chicken.jpg";
