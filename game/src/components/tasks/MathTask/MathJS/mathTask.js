@@ -58,8 +58,4 @@ export function resultOfQuestion(answer, clear_modal) {
         //действие монстра
     }
 }
-<<<<<<< HEAD
 
-=======
-}
->>>>>>> 049b939e981c3a663fd4d324181deca2629e9cc1
