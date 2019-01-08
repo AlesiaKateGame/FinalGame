@@ -32,7 +32,7 @@ export function mathTask (level, clear_modal) {
 
 
 export function resultOfQuestion(answer, clear_modal) {
-    let correctResult = Math.ceil(eval(mathExpressionLevel)*10/10); // правильный результат
+    let correctResult = eval(mathExpressionLevel).toFixed(1); // правильный результат
     if (answer == correctResult) {
         document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
