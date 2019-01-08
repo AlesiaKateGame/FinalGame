@@ -25,14 +25,22 @@ export function mathTask (level, clear_modal) {
     const titleForQuestion = document.querySelector('#task-Level__h3');
     titleForQuestion.textContent = 'Сколько будет ' + mathExpressionLevel +'?';
 
-    const input = document.querySelector('#task-Level__input');
+    let input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
     inputEnter();
 
+    function inputEnter() {
+        input.addEventListener('keypress', function(event){
+          if (event.code === "Enter") {
+              resultOfQuestion(input.value, clear_modal);
+          }
+      });
+    }
+}
 
 export function resultOfQuestion(answer, clear_modal) {
-    let correctResult = Math.ceil(eval(mathExpressionLevel)*10/10); // правильный результат
+    let correctResult = eval(mathExpressionLevel); // правильный результат
     if (answer == correctResult) {
         document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
@@ -50,3 +58,4 @@ export function resultOfQuestion(answer, clear_modal) {
         //действие монстра
     }
 }
+

@@ -3,9 +3,9 @@ import {getRandomInRange, getRandomInArray} from './commonFunctions';
 export const congratulationTitleArray = ['Поздравляю! Хороший ответ!', 'Ты молодец! Tак держать!', 'Ты - мозг! Давай еще!', 'Умница! Классный ответ!', 'Ты легко преодолеваешь препятствия!', 'Супер! Доказал что можешь!', 'Прекрасная работа!', 'Прямое попадание в десятку!', 'Великолепно! Именно то, что нужно!', 'Грандиозно! Прямо в цель!'];
 export const mistakeTitleArray = ['Ошибочка! Давай еще!', 'Не сдавайся! Попробуй снова','У тебя все получится! Не сдавайся','Ошибка! Попробуйка еще раз!', 'Ты можешь лучше!', 'Тебе это по силам! Попробуй еще!', 'У тебя все получится!', 'Может еще разок?', 'Не торопись, подумай!', 'Бывают неудачи, но нужно двигаться вперед!'];
 
-export const mathOperation = ['+', '-', '*', '/'];
+export const mathOperation = ['+', '-', '*'];
 export const mathOperationPlusMinus = ['+', '-'];
-export const mathOperationMultDiv = ['*', '/'];
+export const mathOperationMultDiv = ['*'];
 
 export const randomSingleDigit1 = getRandomInRange(0, 9);
 export const randomSingleDigit2 = getRandomInRange(0, 9);

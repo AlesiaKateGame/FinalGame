@@ -4,7 +4,7 @@ import jsonFile3 from './WordAudioEngToEng/wordAudioEngToEng3.json';
 import jsonFile4 from './WordAudioEngToEng/wordAudioEngToEng4.json';
 import jsonFile5 from './WordAudioEngToEng/wordAudioEngToEng5.json';
 
-import * as allSaunds from '../assets/importAllSound.js';
+// import * as allSaunds from '../assets/importAllSound.js';
 import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
