@@ -1,8 +1,11 @@
 import jsonFile1 from './WordAudioEngToEng/wordAudioEngToEng1.json';
 import jsonFile2 from './WordAudioEngToEng/wordAudioEngToEng2.json';
+import jsonFile3 from './WordAudioEngToEng/wordAudioEngToEng3.json';
+import jsonFile4 from './WordAudioEngToEng/wordAudioEngToEng4.json';
+import jsonFile5 from './WordAudioEngToEng/wordAudioEngToEng5.json';
 
-// import * as allSaunds from '../assets/importAllSound.js';
-import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
+import * as allSaunds from '../assets/importAllSound.js';
+import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 let array;
@@ -17,19 +20,19 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function translateEngToEng (level, clear_modal) {
+export function audioEngToEngTask (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
     } else if (level === 2) {
         jsonFunc(jsonFile2);
-    } /*else if (level === 3) {
+    } else if (level === 3) {
         jsonFunc(jsonFile3);
     } else if (level === 4) {
         jsonFunc(jsonFile4);
     } else if (level === 5) {
         jsonFunc(jsonFile5);
-    }*/
+    }
 
     const gameLevel = document.querySelector('#task-Level__h1');
     gameLevel.textContent = 'Уровень ' + level;
@@ -43,7 +46,7 @@ export function translateEngToEng (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-
+    inputEnter();
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {

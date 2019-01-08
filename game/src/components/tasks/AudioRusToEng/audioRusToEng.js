@@ -5,7 +5,7 @@ import jsonFile4 from './WordAudioRusToEng/wordAudioRusToEng4.json';
 import jsonFile5 from './WordAudioRusToEng/wordAudioRusToEng5.json';
 
 import allSaundsRu from '../assets/importSoundRusToEng.js';
-import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
+import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 let array;
@@ -20,7 +20,7 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function audioEngToRusTask (level, clear_modal) {
+export function audioRusToEngTask (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
@@ -46,7 +46,7 @@ export function audioEngToRusTask (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-
+    inputEnter();
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {

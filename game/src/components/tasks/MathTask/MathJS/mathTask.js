@@ -1,7 +1,7 @@
 import * as vars from './commonVariables';
 import * as soundapplause from '../../../../sounds/aplodismenty_shot.mp3';
 import * as soundluse from '../../../../sounds/dissapoinment_shot.mp3';
-import {getRandomInRange, getRandomInArray} from './commonFunctions';
+import {getRandomInRange, getRandomInArray, inputEnter} from './commonFunctions';
 
 let mathExpressionLevel;
 
@@ -28,12 +28,11 @@ export function mathTask (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
-
-}
+    inputEnter();
 
 
 export function resultOfQuestion(answer, clear_modal) {
-    let correctResult = eval(mathExpressionLevel); // правильный результат
+    let correctResult = Math.ceil(eval(mathExpressionLevel)*10/10); // правильный результат
     if (answer == correctResult) {
         document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');

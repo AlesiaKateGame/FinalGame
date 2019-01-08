@@ -1,26 +1,26 @@
-import jsonFile1 from './WordAudioRusToRus/wordAudioRusToRus1.json';
-import jsonFile2 from './WordAudioRusToRus/wordAudioRusToRus2.json';
-import jsonFile3 from './WordAudioRusToRus/wordAudioRusToRus3.json';
-import jsonFile4 from './WordAudioRusToRus/wordAudioRusToRus4.json';
-import jsonFile5 from './WordAudioRusToRus/wordAudioRusToRus5.json';
+import jsonFile1 from './WordPictureTaskRus/wordPictureTaskRus1.json';
+import jsonFile2 from './WordPictureTaskRus/wordPictureTaskRus2.json';
+import jsonFile3 from './WordPictureTaskRus/wordPictureTaskRus3.json';
+import jsonFile4 from './WordPictureTaskRus/wordPictureTaskRus4.json';
+import jsonFile5 from './WordPictureTaskRus/wordPictureTaskRus5.json';
 
-
+import allPictures from './importAllPictures.js';
 import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 let array;
 let numberOfObject;
-let  randomObject, randomWord, randomWordSound;
+let  randomObject, randomWord, randomWordPicture;
 
 function jsonFunc (jsonFile) {
     array = jsonFile['words'];
     numberOfObject = getRandomInArray(array);
     randomObject = array[numberOfObject];
     randomWord = randomObject['word'];
-    randomWordSound = randomObject['source'];
+    randomWordPicture = randomObject['source'];
 }
 
-export function audioRusToRusTask (level, clear_modal) {
+export function pictureTaskRus (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
@@ -37,11 +37,8 @@ export function audioRusToRusTask (level, clear_modal) {
     const gameLevel = document.querySelector('#task-Level__h1');
     gameLevel.textContent = 'Уровень ' + level;
 
-    const titleForQuestion = document.querySelector('#task-Level__h3');
-    titleForQuestion.textContent = 'Напиши слово на русском языке ';
-
-    const audio = document.querySelector('#audio');
-    audio.src = randomWordSound;
+    const picture = document.querySelector('#picture');
+    picture.src = randomWordPicture;
 
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
