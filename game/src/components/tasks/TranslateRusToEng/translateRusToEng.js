@@ -4,7 +4,7 @@ import jsonFile3 from './WordTranslateRusToEng/wordTranslateRusToEng3.json';
 import jsonFile4 from './WordTranslateRusToEng/wordTranslateRusToEng4.json';
 import jsonFile5 from './WordTranslateRusToEng/wordTranslateRusToEng5.json';
 
-import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
+import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 
 import * as vars from '../MathTask/MathJS/commonVariables';
 
@@ -47,7 +47,7 @@ function jsonFunc (jsonFile) {
         const input = document.querySelector('#task-Level__input');
         let answer_button = document.querySelector('.task-Level__answer');
         answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
-    
+        inputEnter();
     }
     export function resultOfQuestion(answer, clear_modal) {
         function isCorrect(option) {

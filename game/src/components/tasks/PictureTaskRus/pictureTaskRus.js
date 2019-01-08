@@ -5,7 +5,7 @@ import jsonFile4 from './WordPictureTaskRus/wordPictureTaskRus4.json';
 import jsonFile5 from './WordPictureTaskRus/wordPictureTaskRus5.json';
 
 import allPictures from './importAllPictures.js';
-import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
+import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 let array;
@@ -43,7 +43,7 @@ export function pictureTaskRus (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-
+    inputEnter();
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {
