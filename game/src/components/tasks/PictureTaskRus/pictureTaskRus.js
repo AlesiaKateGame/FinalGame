@@ -1,8 +1,8 @@
-import jsonFile1 from './WordPictureTaskEng/wordPictureTaskEng1.json';
-import jsonFile2 from './WordPictureTaskEng/wordPictureTaskEng2.json';
-import jsonFile3 from './WordPictureTaskEng/wordPictureTaskEng3.json';
-import jsonFile4 from './WordPictureTaskEng/wordPictureTaskEng4.json';
-import jsonFile5 from './WordPictureTaskEng/wordPictureTaskEng5.json';
+import jsonFile1 from './WordPictureTaskRus/wordPictureTaskRus1.json';
+import jsonFile2 from './WordPictureTaskRus/wordPictureTaskRus2.json';
+import jsonFile3 from './WordPictureTaskRus/wordPictureTaskRus3.json';
+import jsonFile4 from './WordPictureTaskRus/wordPictureTaskRus4.json';
+import jsonFile5 from './WordPictureTaskRus/wordPictureTaskRus5.json';
 
 import allPictures from './importAllPictures.js';
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
@@ -20,7 +20,7 @@ function jsonFunc (jsonFile) {
     randomWordPicture = randomObject['source'];
 }
 
-export function pictureTaskEng (level, clear_modal) {
+export function pictureTaskRus (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
