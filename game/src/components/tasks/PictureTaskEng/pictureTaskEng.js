@@ -20,7 +20,7 @@ function jsonFunc (jsonFile) {
     randomWordPicture = randomObject['source'];
 }
 
-export function audioEngToEngTask (level, clear_modal) {
+export function pictureTask (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
