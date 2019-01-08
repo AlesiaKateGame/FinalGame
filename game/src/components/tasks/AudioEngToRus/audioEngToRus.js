@@ -1,7 +1,10 @@
 import jsonFile1 from './WordAudioEngToRus/wordAudioEngToRus1.json';
 import jsonFile2 from './WordAudioEngToRus/wordAudioEngToRus2.json';
+import jsonFile3 from './WordAudioEngToRus/wordAudioEngToRus3.json';
+import jsonFile4 from './WordAudioEngToRus/wordAudioEngToRus4.json';
+import jsonFile5 from './WordAudioEngToRus/wordAudioEngToRus5.json';
 
-import allSaunds from './importAllSound.js';
+import allSaunds from '../assets/importSoundEngToRus.js';
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
@@ -17,19 +20,19 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function audioEngToEngTask (level, clear_modal) {
+export function audioEngToRus (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
     } else if (level === 2) {
         jsonFunc(jsonFile2);
-    } /*else if (level === 3) {
+    } else if (level === 3) {
         jsonFunc(jsonFile3);
     } else if (level === 4) {
         jsonFunc(jsonFile4);
     } else if (level === 5) {
         jsonFunc(jsonFile5);
-    }*/
+    }
 
     const gameLevel = document.querySelector('#task-Level__h1');
     gameLevel.textContent = 'Уровень ' + level;
@@ -52,7 +55,7 @@ export function resultOfQuestion(answer, clear_modal) {
      // правильный результат
 
     if (randomWord.some(isCorrect)) {
-        document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomCongratulationTitle+"</h1>";
+        document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
         aplodisment.play();
         localStorage.setItem('answerState', true);
@@ -60,7 +63,7 @@ export function resultOfQuestion(answer, clear_modal) {
         //дейстие игрока
 
     } else {
-        document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomMistakeTitle+"</h1>";
+        document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomMistakeTitle+"</h4>";
         let soundluse=new Audio('sounds/dissapoinment_shot.mp3');
         soundluse.play();
         localStorage.setItem('answerState', false);

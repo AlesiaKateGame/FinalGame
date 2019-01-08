@@ -10,8 +10,12 @@ import * as preloader from './components/preloader/preloaderHtml.html';
 import * as new_level from './components/new_level/new_levelHtml.html';
 import * as translateEngToRus from './components/tasks/TranslateEngToRus/TranslateEngToRus.html';
 import * as translateRusToEngHtml from './components/tasks/TranslateRusToEng/translateRusToEng.html';
+import * as homeHtml from './screens/home/homeHtml.html';
 
 import * as audioEngToRusHtml from './components/tasks/AudioEngToRus/audioEngToRus.html';
+import * as audioRuToRngsHtml from './components/tasks/AudioRusToEng/audioRusToEng.html';
+import * as audioEngHtml from './components/tasks/AudioEngToEng/audioEngToEng.html';
+import * as audioRuHtml from './components/tasks/AudioRusToRus/audioRusToRus.html';
 
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
@@ -19,6 +23,11 @@ import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
 import * as tranclateEngRu from './components/tasks/TranslateEngToRus/TranslateEngToRus.js';
 import * as translateRusToEngJs from './components/tasks/TranslateRusToEng/translateRusToEng.js';
 import * as audioEngToRus from './components/tasks/AudioEngToRus/audioEngToRus.js';
+import * as audioRuToEngJs from './components/tasks/AudioRusToEng/audioRusToEng.js';
+import * as audioEngJs from './components/tasks/AudioEngToEng/audioEngToEng.js';
+import * as audioRuJs from './components/tasks/AudioRusToRus/audioRusToRus.js';
+
+
 import * as battleJS from './components/battle/battleJS.js';
 import * as lendingjs from './screens/landing/landing.js';
 import * as levelUp from './sounds/new_level.mp3';
@@ -29,7 +38,7 @@ import * as levelUp from './sounds/new_level.mp3';
 class Game {
     constructor () {
         this.player = null;
-        this.monster = null;
+        this.monster = {};
         this.level = 1;
         this.bindedClearModal = this.clearModal.bind(this)
     }
@@ -40,13 +49,6 @@ class Game {
             modalwindow.className = "modal-body";
             document.body.appendChild(modalwindow);
         }
-    }
-
-    addPreloader() {
-        this.addModalWindow();
-        let modalwindow = document.querySelector('.modal-body');
-        modalwindow.innerHTML = preloader;
-
     }
 
     show_login () {
@@ -97,19 +99,26 @@ class Game {
 
         this.add_player();
         this.add_monster();
-       
-        // 
+    
     }
 
-
     choose_weapon(e) {
-       
+            let weapon_container=document.querySelector(".weapon_container");
         if (e.target.classList.contains("weapon_container-fire")) {
             this.player.weapon="fire";
+            let weaponArr=Array.from(weapon_container.getElementsByClassName("press"));
+            weaponArr.forEach((v)=>v.classList.remove("press"));
+            e.target.classList.add("press");
         }else if (e.target.classList.contains("weapon_container-poison"))
             {this.player.weapon="poison";
+            let weaponArr=Array.from(weapon_container.getElementsByClassName("press"));
+            weaponArr.forEach((v)=>v.classList.remove("press"));
+            e.target.classList.add("press");
         }else if (e.target.classList.contains("weapon_container-light")) {
             this.player.weapon="light";
+            let weaponArr=Array.from(weapon_container.getElementsByClassName("press"));
+            weaponArr.forEach((v)=>v.classList.remove("press"));
+            e.target.classList.add("press");
         }
     }
 
@@ -126,20 +135,28 @@ class Game {
             if (e.target.classList.contains("math_task")) {
                 this.showMathTask();
             }else if (e.target.classList.contains("eng_ru_translate"))
-            { this.showEngRuTask()}
-            else if (e.target.classList.contains("listening"))
-            { this.showEngAudio()
+            { this.showEngRuTranslate()
             }else if (e.target.classList.contains("ru_eng_translate"))
-            { this.showRuEngTask()}
+            { this.showRuEngTranslate ()
+            }else if (e.target.classList.contains("listening_eng_ru"))
+            { this.showEngRuAudio()
+            }else if (e.target.classList.contains("listening_ru_eng"))
+            { this.showRuEngAudio()
+            }else if (e.target.classList.contains("listening_eng"))
+            { this.showEngAudio()
+            }else if (e.target.classList.contains("listening_ru"))
+            { this.showRuAudio()
+            }
         });
        
     }
 
     add_monster() {
-        this.monster = {
-            "health": 100,
-        }
+        this.monster.health = 100;
+        this.change_monster_health(0);
         let scene_monster=document.querySelector('.scene_container-monster');
+        scene_monster.classList.remove("dead");
+        scene_monster.classList.add("start");
         scene_monster.innerHTML=monsterHtml;
         monsterJS.startMonster();
     };
@@ -179,7 +196,7 @@ class Game {
 
     player_hit() {
         document.querySelector(".weapon_container").style.display="flex";
-        this.change_monster_health();
+        this.change_monster_health(20);
         if (this.player.weapon=="fire") {
             battleJS.fire_hit();
         }else if (this.player.weapon=="poison") {
@@ -192,18 +209,31 @@ class Game {
     change_player_health() {
         this.player.health-=20;
         document.querySelector(".player_health").innerHTML=this.player.health;
+        document.querySelector(".player_health").style.width=this.player.health*3+"px";
         if(this.player.health<=0) {
             this.game_over ();
         }
      
     }
 
-    change_monster_health() {
+    change_monster_health(num) {
         console.log(this.monster, this.monster.health);
-        this.monster.health-=100;
-        document.querySelector(".monster_health").innerHTML=this.monster.health;
+        this.monster.health -= +num;
+        document.querySelector(".monster_health").innerHTML = this.monster.health;
+        document.querySelector(".monster_health").style.width = this.monster.health * 3 + "px";
+        
+        
+        
         if(this.monster.health<=0) {
-            setTimeout (() => {this.add_level()}, 4000);
+            setTimeout(()=>{
+                document.querySelector('.scene_container-monster').classList.add("dead");
+            },1000)
+            setTimeout (() => {
+                let scene_monster=document.querySelector('.scene_container-monster');
+                scene_monster.classList.remove("start");
+                this.add_level();
+
+            },2700);
         }
     }
 
@@ -216,11 +246,13 @@ class Game {
         document.querySelector(".fight_button").style.display="none";
         modalwindow.innerHTML = new_level;
         let levelUp=new Audio('sounds/new_level.mp3');
-            levelUp.play();
+        levelUp.play();
         setTimeout(() => { 
             modalwindow.replaceWith();
             
             this.add_monster();
+            document.querySelector(".weapon_container").style.display="flex";
+            document.querySelector(".monster_health").style.width="flex";
 
         }, 2500);
     }
@@ -255,7 +287,7 @@ class Game {
         mathTaskJs.mathTask(this.level, this.bindedClearModal);
     }
 
-    showEngRuTask() {
+    showEngRuTranslate() {
         this.addModalWindow();
         
         let modalwindow = document.querySelector('.modal-body');
@@ -263,26 +295,54 @@ class Game {
 
         tranclateEngRu.translateEngToRusTask(this.level, this.bindedClearModal);
     }
+    
 
-    showEngAudio() {
-        this.addModalWindow();
+    showRuEngTranslate () {
+    this.addModalWindow();
         
+   let modalwindow = document.querySelector('.modal-body');
+    modalwindow.innerHTML = translateRusToEngHtml;
+
+    translateRusToEngJs.translateRusToEngTask(this.level, this.bindedClearModal);
+    }
+
+
+    showEngRuAudio() {
+        this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = audioEngToRusHtml;
 
-         audioEngToRus.translateEngToRusTask(this.level, this.bindedClearModal);
+        audioEngToRus.audioEngToRus(this.level, this.bindedClearModal);
     }
 
-    showRuEngTask () {
+    showRuEngAudio() {
         this.addModalWindow();
-        
         let modalwindow = document.querySelector('.modal-body');
-        modalwindow.innerHTML = translateRusToEngHtml;
-
-       translateRusToEngJs.translateRusToEngTask(this.level, this.bindedClearModal);
+        modalwindow.innerHTML = audioRuToRngsHtml;
+        audioRuToEngJs.audioEngToRusTask(this.level, this.bindedClearModal);
     }
 
+    showEngAudio() {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = audioEngHtml;
+        audioEngJs.translateEngToEng(this.level, this.bindedClearModal);
+    }
+
+    showRuAudio() {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = audioRuHtml;
+        audioRuJs.audioRusToRusTask(this.level, this.bindedClearModal);
+    }
 
 }
 let game = new Game();
-game.show_login();
+
+window.addEventListener("load", ()=>{
+    document.querySelector(".lds-roller").replaceWith();
+
+    document.body.innerHTML += homeHtml
+    document.body.classList.add('loaded');
+    game.show_login();
+})

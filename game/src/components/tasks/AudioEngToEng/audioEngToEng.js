@@ -1,7 +1,7 @@
 import jsonFile1 from './WordAudioEngToEng/wordAudioEngToEng1.json';
 import jsonFile2 from './WordAudioEngToEng/wordAudioEngToEng2.json';
 
-import allSaunds from '../AudioEngToRus/importAllSound.js';
+// import * as allSaunds from '../assets/importAllSound.js';
 import {getRandomInArray} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
@@ -17,7 +17,7 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function translateEngToRusTask (level, clear_modal) {
+export function translateEngToEng (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);

@@ -4,11 +4,11 @@ export function lightning_hit() {
     // let light_sound = new Audio ("../src/sounds/light_ball.mp3");
     // light_sound.play();
     
-    light_ball.classList.toggle("animated");
-    light_explosion.classList.toggle("animated");
+    light_ball.classList.add("animated");
+    light_explosion.classList.add("animated");
     
-    setTimeout (function () {light_ball.classList.toggle("animated")}, 500 )
-    setTimeout (function () {light_explosion.classList.toggle("animated")}, 1200 )
+    setTimeout (function () {light_ball.classList.remove("animated")}, 400 );
+    setTimeout (function () {light_explosion.classList.remove("animated")}, 900 );
 
    
 }
@@ -25,8 +25,8 @@ export function fire_hit () {
     // fire_sound.play();
     // document.body.onclick=null;
 
-    setTimeout (function () {fire_ball.classList.toggle("animated")}, 1500 );
-    setTimeout (function () {fire_explosion.classList.toggle("animated")}, 3000 );
+    setTimeout (function () {fire_ball.classList.toggle("animated")}, 1000 );
+    setTimeout (function () {fire_explosion.classList.toggle("animated")}, 2000 );
 }
     
 export function poison_hit () {
@@ -38,5 +38,5 @@ export function poison_hit () {
 //     document.body.onclick=null;
 
     poison_ball.classList.toggle("animated");
-    setTimeout (function () {poison_ball.classList.toggle("animated")}, 3500 )
+    setTimeout (function () {poison_ball.classList.toggle("animated")}, 2500 );
 }

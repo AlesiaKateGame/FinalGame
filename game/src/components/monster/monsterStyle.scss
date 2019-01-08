@@ -98,6 +98,22 @@
     
 }
 
+.scene_container-monster {
+    transition: 1s;
+    &.start {
+        position: relative;
+        animation: monster_start 1s linear 0s 1 forwards;
+    }
+    &.dead {
+        transform: translateX(600px) rotate(1turn);
+    }
+}
+
+@keyframes monster_start {
+    0% {top: 0;right: -40%;}
+    50% {top: -100px;}
+    100% {top: 0;right: 0;}
+}
 
 
 @keyframes monster_body {
@@ -128,6 +144,7 @@
 
 
 
+
 .fire_ball {
     background-image: url("../components/battle/img/fire_ball.png");
     position: absolute;
@@ -144,7 +161,7 @@
 
 .fire_ball.animated {
     display:block;
-    animation: fire_ball_anim 1.5s ease-in 1;
+    animation: fire_ball_anim 1s ease-in 1;
 }
 
 
@@ -161,7 +178,7 @@
 
 .fire_explosion.animated {
     
-    animation: fire_ball_expl 1s linear 1.5s 1;
+    animation: fire_ball_expl 1s linear 1s 1;
     animation-fill-mode: forwards;
     display: block;
 }
@@ -212,7 +229,7 @@
 
 .poison_ball.animated {
     display: block;
-    animation: poison_ball_anim 3.5s linear 1;
+    animation: poison_ball_anim 2.5s linear 1;
     animation-fill-mode: forwards;
 }
 
@@ -239,8 +256,8 @@
 
 .light_ball.animated {
     display: block;
-    animation: light_ball_magick .4s linear  1;
-    animation-fill-mode: forwards;
+    animation: light_ball_magick .3s linear  1;
+    //animation-fill-mode: forwards;
 }
 
 .light_explosion {
@@ -257,8 +274,8 @@
 
 .light_explosion.animated {
     display: block;
-    animation: light_ball_expl 1s linear .2s 1;
-    animation-fill-mode: forwards;
+    animation: light_ball_expl 1s linear 1;
+    //animation-fill-mode: forwards;
 }
 
 @keyframes light_ball_expl {
