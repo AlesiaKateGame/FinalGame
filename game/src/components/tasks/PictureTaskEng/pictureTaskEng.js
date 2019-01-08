@@ -43,7 +43,7 @@ export function pictureTaskEng (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-    inputEnter();
+    inputEnter(input);
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {

@@ -28,7 +28,7 @@ export function mathTask (level, clear_modal) {
     let input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
-    inputEnter();
+    inputEnter(input);
 
     function inputEnter() {
         input.addEventListener('keypress', function(event){
@@ -58,4 +58,8 @@ export function resultOfQuestion(answer, clear_modal) {
         //действие монстра
     }
 }
+<<<<<<< HEAD
 
+=======
+}
+>>>>>>> 049b939e981c3a663fd4d324181deca2629e9cc1
