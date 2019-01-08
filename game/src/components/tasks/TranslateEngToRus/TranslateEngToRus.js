@@ -40,10 +40,12 @@ function jsonFunc (jsonFile) {
  
         const gameLevel = document.querySelector('#task-Level__h1');
         gameLevel.textContent = 'Уровень ' + level;
-    
+        
+       
         const titleForQuestion = document.querySelector('#task-Level__h3');
-        titleForQuestion.textContent = 'Переведи слово на русский язык: ' +  randomWord;
-    
+        titleForQuestion.innerHTML = 'Переведи слово на русский язык: <span class="translate_word"> ' +  randomWord + '</span>';
+       
+
         const input = document.querySelector('#task-Level__input');
         let answer_button = document.querySelector('.task-Level__answer');
         answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
@@ -55,7 +57,7 @@ function jsonFunc (jsonFile) {
           }
          // правильный результат
         if (randomWordTranslation.some(isCorrect)) {
-            document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomCongratulationTitle+"</h1>";
+            document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
             let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
             aplodisment.play();
             localStorage.setItem('answerState', true);
@@ -63,7 +65,7 @@ function jsonFunc (jsonFile) {
             //дейстие игрока
     
         } else {
-            document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomMistakeTitle+"</h1>";
+            document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomMistakeTitle+"</h4>";
             let soundluse=new Audio('sounds/dissapoinment_shot.mp3');
             soundluse.play();
             localStorage.setItem('answerState', false);

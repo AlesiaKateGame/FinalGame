@@ -1,3 +1,9 @@
+
+@font-face {
+    font-family: "Chinese"; 
+    src: url("../screens/landing/fonts/Chinese.otf")
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -41,4 +47,13 @@ h1, h2, h3{
     background: rgb(214, 99, 99);
     color : white;
     margin: 2% 27%;
+}
+
+.translate_word {
+color: rgb(214, 99, 99);
+font-family: Chinese, Arial, Helvetica, sans-serif;
+}
+
+#audio {
+    margin: 5px auto;
 }

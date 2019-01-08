@@ -1,5 +1,9 @@
 
-@import '../screens/landing/fonts/Providence.ttf';
+@font-face {
+    font-family: "Chinese"; 
+    src: url("../screens/landing/fonts/Chinese.otf")
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -98,7 +102,7 @@ body {
         justify-content: space-around;
         width: 100%;
         position: absolute;
-        top: 53%;
+        top: 60%;
     }
 
     .scene_container-player {
@@ -127,7 +131,7 @@ body {
     .monster_inform {
         position: absolute;
         left: 60%;
-        top: 10%;
+        top: 3%;
         display: none;
         .inner_border {
             border: 8px solid #ce7146;
@@ -159,15 +163,16 @@ body {
         }
         
         .monster_name {
-            font-size: 20px;
+            font-size: 28px;
             margin: 5%;
-            font-family: Providence, Arial, Helvetica, sans-serif;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
+            color: #f1185c
         }
     }
 
     .player_inform {
         position: absolute;
-        top: 10%;
+        top: 3%;
         left: 20%;
         display: none;
         .inner_border {
@@ -202,8 +207,10 @@ body {
         }
 
         .player_name {
-            font-size: 20px;
+            font-size: 28px;
             margin: 5%;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
+            color: #f1185c
         }
     }
     
@@ -232,7 +239,7 @@ body {
         position: absolute;
         display: none;
         bottom: 15%;
-        left: 40%;
+        left: 35%;
         width: 350px;
         justify-content: space-between;
         z-index: 100;
@@ -339,6 +346,21 @@ body {
         0% {right: -500px}
         100% {right: 100%}
     }
+
+    .coin_container {
+        display: flex; 
+        position: absolute;
+        height: 200px;
+        width: 1000px;
+        top: 10%;
+        right: 3%;
+        .coin_img {
+            background-image: url("../components/score/img/coin.png");
+            height: 98px;
+            width: 100px;
+            
+        }
+    }
 }
 
 .preload_images {
@@ -352,6 +374,10 @@ body {
     * {
         position: absolute;
     }
+
+    
+
+
 }
 
   

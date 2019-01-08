@@ -39,15 +39,24 @@ module.exports = {
           },
         }],
       },
+      // {
+      //   test: /\.(otf|ttf)$/i,
+      //   use: [{
+      //     loader: 'file-loader',
+      //     options: {
+      //       name: './fonts/[name].[ext]',
+      //     },
+      //   }],
+      // },
       {
-        test: /\.(otf|ttf)$/i,
+        test: /\.(woff(2)?|ttf|otf|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
-          loader: 'file-loader',
-          options: {
-            name: './fonts/[name].[ext]',
-          },
-        }],
-      },
+            loader: 'file-loader',
+            options: {
+                name: './fonts/[name].[ext]',
+            }
+        }]
+    },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
