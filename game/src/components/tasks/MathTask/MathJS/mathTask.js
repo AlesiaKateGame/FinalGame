@@ -50,3 +50,4 @@ export function resultOfQuestion(answer, clear_modal) {
         //действие монстра
     }
 }
+}
