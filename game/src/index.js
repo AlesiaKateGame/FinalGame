@@ -11,11 +11,13 @@ import * as new_level from './components/new_level/new_levelHtml.html';
 import * as translateEngToRus from './components/tasks/TranslateEngToRus/TranslateEngToRus.html';
 import * as translateRusToEngHtml from './components/tasks/TranslateRusToEng/translateRusToEng.html';
 import * as homeHtml from './screens/home/homeHtml.html';
+import * as pictureTaskEng from './components/tasks/PictureTaskEng/pictureTaskEng.html';
 
 import * as audioEngToRusHtml from './components/tasks/AudioEngToRus/audioEngToRus.html';
 import * as audioRuToRngsHtml from './components/tasks/AudioRusToEng/audioRusToEng.html';
 import * as audioEngHtml from './components/tasks/AudioEngToEng/audioEngToEng.html';
 import * as audioRuHtml from './components/tasks/AudioRusToRus/audioRusToRus.html';
+import * as pictureTaskEngJs from './components/tasks/PictureTaskEng/pictureTaskEng.js';
 
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
@@ -146,6 +148,8 @@ class Game {
             { this.showEngAudio()
             }else if (e.target.classList.contains("listening_ru"))
             { this.showRuAudio()
+            }else if (e.target.classList.contains("write_word"))
+            { this.showWritePicture()
             }
         });
        
@@ -334,6 +338,13 @@ class Game {
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = audioRuHtml;
         audioRuJs.audioRusToRusTask(this.level, this.bindedClearModal);
+    }
+
+    showWritePicture() {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = pictureTaskEng;
+        pictureTaskEngJs.pictureTask(this.level, this.bindedClearModal);
     }
 
 }
