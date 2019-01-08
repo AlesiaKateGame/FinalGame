@@ -10,10 +10,12 @@ import * as preloader from './components/preloader/preloaderHtml.html';
 import * as new_level from './components/new_level/new_levelHtml.html';
 import * as translateEngToRus from './components/tasks/TranslateEngToRus/TranslateEngToRus.html';
 import * as translateRusToEngHtml from './components/tasks/TranslateRusToEng/translateRusToEng.html';
-
 import * as homeHtml from './screens/home/homeHtml.html';
 
 import * as audioEngToRusHtml from './components/tasks/AudioEngToRus/audioEngToRus.html';
+import * as audioRuToRngsHtml from './components/tasks/AudioRusToEng/audioRusToEng.html';
+import * as audioEngHtml from './components/tasks/AudioEngToEng/audioEngToEng.html';
+import * as audioRuHtml from './components/tasks/AudioRusToRus/audioRusToRus.html';
 
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
@@ -21,6 +23,11 @@ import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
 import * as tranclateEngRu from './components/tasks/TranslateEngToRus/TranslateEngToRus.js';
 import * as translateRusToEngJs from './components/tasks/TranslateRusToEng/translateRusToEng.js';
 import * as audioEngToRus from './components/tasks/AudioEngToRus/audioEngToRus.js';
+import * as audioRuToEngJs from './components/tasks/AudioRusToEng/audioRusToEng.js';
+import * as audioEngJs from './components/tasks/AudioEngToEng/audioEngToEng.js';
+import * as audioRuJs from './components/tasks/AudioRusToRus/audioRusToRus.js';
+
+
 import * as battleJS from './components/battle/battleJS.js';
 import * as lendingjs from './screens/landing/landing.js';
 import * as levelUp from './sounds/new_level.mp3';
@@ -128,11 +135,18 @@ class Game {
             if (e.target.classList.contains("math_task")) {
                 this.showMathTask();
             }else if (e.target.classList.contains("eng_ru_translate"))
-            { this.showEngRuTask()}
-            else if (e.target.classList.contains("listening"))
-            { this.showEngAudio()
+            { this.showEngRuTranslate()
             }else if (e.target.classList.contains("ru_eng_translate"))
-            { this.showRuEngTask()}
+            { this.showRuEngTranslate ()
+            }else if (e.target.classList.contains("listening_eng_ru"))
+            { this.showEngRuAudio()
+            }else if (e.target.classList.contains("listening_ru_eng"))
+            { this.showRuEngAudio()
+            }else if (e.target.classList.contains("listening_eng"))
+            { this.showEngAudio()
+            }else if (e.target.classList.contains("listening_ru"))
+            { this.showRuAudio()
+            }
         });
        
     }
@@ -273,7 +287,7 @@ class Game {
         mathTaskJs.mathTask(this.level, this.bindedClearModal);
     }
 
-    showEngRuTask() {
+    showEngRuTranslate() {
         this.addModalWindow();
         
         let modalwindow = document.querySelector('.modal-body');
@@ -281,25 +295,46 @@ class Game {
 
         tranclateEngRu.translateEngToRusTask(this.level, this.bindedClearModal);
     }
+    
 
-    showEngAudio() {
-        this.addModalWindow();
+    showRuEngTranslate () {
+    this.addModalWindow();
         
+   let modalwindow = document.querySelector('.modal-body');
+    modalwindow.innerHTML = translateRusToEngHtml;
+
+    translateRusToEngJs.translateRusToEngTask(this.level, this.bindedClearModal);
+    }
+
+
+    showEngRuAudio() {
+        this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = audioEngToRusHtml;
 
-         audioEngToRus.translateEngToRusTask(this.level, this.bindedClearModal);
+        audioEngToRus.audioEngToRus(this.level, this.bindedClearModal);
     }
 
-    showRuEngTask () {
+    showRuEngAudio() {
         this.addModalWindow();
-        
         let modalwindow = document.querySelector('.modal-body');
-        modalwindow.innerHTML = translateRusToEngHtml;
-
-       translateRusToEngJs.translateRusToEngTask(this.level, this.bindedClearModal);
+        modalwindow.innerHTML = audioRuToRngsHtml;
+        audioRuToEngJs.audioEngToRusTask(this.level, this.bindedClearModal);
     }
 
+    showEngAudio() {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = audioEngHtml;
+        audioEngJs.translateEngToEng(this.level, this.bindedClearModal);
+    }
+
+    showRuAudio() {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = audioRuHtml;
+        audioRuJs.audioRusToRusTask(this.level, this.bindedClearModal);
+    }
 
 }
 let game = new Game();

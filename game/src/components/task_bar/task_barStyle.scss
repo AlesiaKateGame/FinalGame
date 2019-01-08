@@ -2,14 +2,14 @@
     position: absolute;
     top: 40%;
     left: 24%;
-    width: 50%;
-    height: 75%;
+    width: 47%;
+    height: 80%;
     background-color: #494f5b;
     border-radius: 20px;
 
     .task__bar-icons {
         display: flex;
-        width: 430px;
+        width: 525px;
         justify-content: space-between;
         margin: 0 auto;
         flex-wrap: wrap;
@@ -22,8 +22,24 @@
             cursor: pointer;
             margin-bottom: 23px;
             border-radius: 50%;
-            border: 5px solid rgb(43, 102, 43);
+        }
+        .math_task:hover {
+            transform: scale(1.1)
+        }
 
+        .collect_word {
+            background-image: url("../components/task_bar/img/collect_word.png"); 
+            width: 110px;
+            height: 110px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin-bottom: 23px;
+            border-radius: 50%; 
+        }
+
+        .collect_word:hover {
+            transform: scale(1.1)
         }
     
         .eng_ru_translate {
@@ -35,9 +51,10 @@
             cursor: pointer;
             margin-bottom: 23px;
             border-radius: 50%;
-            border: 5px solid rgb(43, 102, 43);
+        }
 
-
+        .eng_ru_translate:hover {
+            transform: scale(1.1)
         }
     
         .ru_eng_translate {
@@ -49,12 +66,14 @@
             cursor: pointer;
             margin-bottom: 23px;
             border-radius: 50%;
-            border-radius: 50%;
-            border: 5px solid rgb(43, 102, 43);
         }
 
-        .listening {
-            background-image: url("../components/task_bar/img/listening_icon.png"); 
+        .ru_eng_translate:hover {
+            transform: scale(1.1)
+        }
+
+        .listening_eng_ru {
+            background-image: url("../components/task_bar/img/listening_eng_ru.png"); 
             width: 110px;
             height: 110px;
             background-size: contain;
@@ -62,12 +81,53 @@
             cursor: pointer;
             margin-bottom: 23px;
             border-radius: 50%;
-            border-radius: 50%;
-            border: 5px solid rgb(43, 102, 43);
-
-
         }
-    
+
+        .listening_eng_ru:hover {
+            transform: scale(1.1)
+        }
+
+        .listening_ru_eng {
+            background-image: url("../components/task_bar/img/listening_ru_eng.png"); 
+            width: 110px;
+            height: 110px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin-bottom: 23px;
+            border-radius: 50%;
+        }
+        .listening_ru_eng:hover {
+            transform: scale(1.1)
+        }
+
+        .listening_eng {
+            background-image: url("../components/task_bar/img/listening_eng.png"); 
+            width: 110px;
+            height: 110px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin-bottom: 23px;
+            border-radius: 50%;
+        }
+        .listening_eng:hover {
+            transform: scale(1.1)
+        }
+
+        .listening_ru {
+            background-image: url("../components/task_bar/img/listening_ru.png"); 
+            width: 110px;
+            height: 110px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            margin-bottom: 23px;
+            border-radius: 50%;
+        }
+        .listening_ru:hover {
+            transform: scale(1.1)
+        }
     
     }
 
@@ -75,7 +135,7 @@
     .task__bar-title {
         position: relative;
         width: 550px;
-        padding: 30px 0;
+        padding: 12px 0;
         background-color: #99a3af;
         border-radius: 40px;
         margin: 50px auto;
@@ -88,7 +148,7 @@
             top: -30px;
             left: -10px;
             width: 133px;
-            height: 150px;
+            height: 100px;
             background-size: contain;
             background-repeat: no-repeat;
         background-image: url("../components/task_bar/img/cup.png"); 
