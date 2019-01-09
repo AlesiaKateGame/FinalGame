@@ -25,11 +25,6 @@ h1, h2, h3{
     border-image-source: url("../components/tasks/assets/frame.png");
 }
 
-img {
-    height: 90px;
-    display: block;
-    margin: 0 auto;
-}
 #task-Level__input {
     width: 90%;
     height: 40%;
@@ -47,4 +42,13 @@ img {
     background: rgb(214, 99, 99);
     color : white;
     margin: 2% 27%;
+}
+
+#task-Level__h2 img {
+    display: block;
+    margin: 0 auto;
+}
+
+section#task-Level{
+    height: unset;
 }

@@ -20,7 +20,7 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function audioRusToEngTask (level, clear_modal) {
+export function audioRusToEng (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
@@ -46,7 +46,15 @@ export function audioRusToEngTask (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-    inputEnter(input);
+    inputEnter();
+
+    function inputEnter() {
+        input.addEventListener('keypress', function(event){
+          if (event.code === "Enter") {
+              resultOfQuestion(input.value, clear_modal);
+          }
+      });
+    }
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {

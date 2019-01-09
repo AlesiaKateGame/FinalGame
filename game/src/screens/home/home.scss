@@ -31,7 +31,13 @@ body {
         position: relative;
         width: 100%;
         height: 65%;
+
+        #task-level {
+            height: unset;
+          
+        }
     }
+    
     
     .sky {
         position: absolute;
@@ -81,7 +87,6 @@ body {
         background-repeat: no-repeat;
         position: absolute;
         font-weight: bold;
-
         display: none;
         .level-number {
             margin: 0 auto;
@@ -130,7 +135,7 @@ body {
 
     .monster_inform {
         position: absolute;
-        left: 60%;
+        left: 64%;
         top: 3%;
         display: none;
         .inner_border {
@@ -160,10 +165,11 @@ body {
             font-weight: bold;
             transition: width 1s;
             box-shadow: 0px 4px 1px 0px rgb(131, 67, 40) inset;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
         }
         
         .monster_name {
-            font-size: 28px;
+            font-size: 26px;
             margin: 5%;
             font-family: Chinese, Arial, Helvetica, sans-serif;
             color: #f1185c
@@ -173,7 +179,7 @@ body {
     .player_inform {
         position: absolute;
         top: 3%;
-        left: 20%;
+        left: 25%;
         display: none;
         .inner_border {
             border: 8px solid #ce7146;
@@ -186,7 +192,6 @@ body {
                 height: 31px;
                 background-color: #7a2e14;
                 border-radius: 25px;
-              
             }
         
         }
@@ -203,14 +208,32 @@ body {
             font-weight: bold;
             transition: width 1s;
             box-shadow: 0px 4px 1px 0px rgb(131, 67, 40) inset;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
         
         }
 
         .player_name {
-            font-size: 28px;
+            font-size: 26px;
             margin: 5%;
             font-family: Chinese, Arial, Helvetica, sans-serif;
             color: #f1185c
+        }
+
+        .coin_poits_container {
+            display: flex;
+            .coin_score {
+                font-family: Chinese, Arial, Helvetica, sans-serif;
+                padding: 11px 3px;
+                font-size: 20px;
+            } 
+            .coin_point {
+                background-image: url("../components/score/img/coin_pint.png");
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: 13px;
+            }
         }
     }
     
@@ -348,19 +371,57 @@ body {
     }
 
     .coin_container {
-        display: flex; 
+        display: block;
         position: absolute;
-        height: 200px;
-        width: 1000px;
-        top: 10%;
-        right: 3%;
+        top: 0;
+        left: 10%;
+        visibility: hidden;
+        
+
         .coin_img {
             background-image: url("../components/score/img/coin.png");
             height: 98px;
             width: 100px;
-            
+            animation: coin 1s linear infinite;
+             
         }
+        &.animated {
+            animation: coin_container 2s linear 1 forwards;
+        }   
     }
+}
+
+@keyframes coin_container {
+    0% {opacity: 1;
+        top: 0;
+        visibility: visible;}
+    100% {
+        visibility: hidden;
+        top: -200px;
+        opacity: 0;}
+}
+
+@keyframes coin {
+    0% {background-position-x: 0}
+    9.999% {background-position-x: 0}
+    10% {background-position-x: -100px}
+    19.999% {background-position-x: -100px}
+    20% {background-position-x: -200px}
+    29.999% {background-position-x: -200px}
+    30% {background-position-x: -300px}
+    39.999% {background-position-x: -300px}
+    40% {background-position-x: -400px}
+    49.999% {background-position-x: -400px}
+    50% {background-position-x: -500px}
+    59.999% {background-position-x: -500px}
+    60% {background-position-x: -600px}
+    69.999% {background-position-x: -600px}
+    70% {background-position-x: -700px}
+    79.999% {background-position-x: -700px}
+    80% {background-position-x: -800px}
+    89.999% {background-position-x: -800px}
+    90% {background-position-x: -900px}
+    100% {background-position-x: -900px}
 }
 
 .preload_images {
@@ -374,10 +435,6 @@ body {
     * {
         position: absolute;
     }
-
-    
-
-
 }
 
   

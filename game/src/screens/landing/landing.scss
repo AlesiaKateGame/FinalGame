@@ -283,34 +283,33 @@ body {
             color: #b13219;
         }
         .main__screenshots-container {
-            display: flex;
-            justify-content: space-between;
+           
             .screens_one {
-                background-image: url("../screens/landing/img/scren_one.jpg");
-                height: 600px;
-                width: 400px;
+                background-image: url("../screens/landing/img/scren_one.png");
+                width: 1200px;
+                height: 748px;
                 background-size: contain;
                 background-repeat: no-repeat;
-                margin: 30px;
+                margin: 10px;
             }
             
             .screens_two{
-                background-image: url("../screens/landing/img/scren_one.jpg");
-                height: 600px;
-                width: 400px;
+                background-image: url("../screens/landing/img/scren_two.png");
+                width: 1200px;
+                height: 748px;
                 background-size: contain;
                 background-repeat: no-repeat;
-                margin: 30px;
+                margin: 10px;
             
             }
             
             .screens_three {
-                background-image: url("../screens/landing/img/scren_one.jpg");
-                height: 600px;
-                width: 400px;
+                background-image: url("../screens/landing/img/scren_three.png");
+                width: 1200px;
+                height: 748px;
                 background-size: contain;
                 background-repeat: no-repeat;
-                margin: 30px;
+                margin: 10px;
             
             }
         }

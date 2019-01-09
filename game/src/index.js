@@ -1,4 +1,5 @@
 import style from "./_scss/main.scss";
+
 import loginHtml from './components/login/loginHtml.html';
 import landing from "./landing.html";
 import mathTaskHtml from './components/tasks/MathTask/math.html';
@@ -12,13 +13,15 @@ import * as translateEngToRus from './components/tasks/TranslateEngToRus/Transla
 import * as translateRusToEngHtml from './components/tasks/TranslateRusToEng/translateRusToEng.html';
 import * as homeHtml from './screens/home/homeHtml.html';
 import * as pictureTaskEng from './components/tasks/PictureTaskEng/pictureTaskEng.html';
-
+import * as pictureTaskRu from './components/tasks/PictureTaskRus/pictureTaskRus.html';
 import * as audioEngToRusHtml from './components/tasks/AudioEngToRus/audioEngToRus.html';
-import * as audioRuToRngsHtml from './components/tasks/AudioRusToEng/audioRusToEng.html';
+import * as audioRuToEngsHtml from './components/tasks/AudioRusToEng/audioRusToEng.html';
 import * as audioEngHtml from './components/tasks/AudioEngToEng/audioEngToEng.html';
 import * as audioRuHtml from './components/tasks/AudioRusToRus/audioRusToRus.html';
-import * as pictureTaskEngJs from './components/tasks/PictureTaskEng/pictureTaskEng.js';
+import * as scoreHtml from './components/score/scoreHtml.html';
 
+import * as pictureTaskEngJs from './components/tasks/PictureTaskEng/pictureTaskEng.js';
+import * as pictureTaskRuJs from './components/tasks/PictureTaskRus/pictureTaskRus.js';
 import * as choose_player from './components/player/choose_player.js';
 import * as monsterJS from './components/monster/monsterJS.js';
 import * as mathTaskJs from './components/tasks/MathTask/MathJS/mathTask.js';
@@ -28,11 +31,10 @@ import * as audioEngToRus from './components/tasks/AudioEngToRus/audioEngToRus.j
 import * as audioRuToEngJs from './components/tasks/AudioRusToEng/audioRusToEng.js';
 import * as audioEngJs from './components/tasks/AudioEngToEng/audioEngToEng.js';
 import * as audioRuJs from './components/tasks/AudioRusToRus/audioRusToRus.js';
-
-
 import * as battleJS from './components/battle/battleJS.js';
 import * as lendingjs from './screens/landing/landing.js';
 import * as levelUp from './sounds/new_level.mp3';
+import * as scoreJs from './components/score/score.js';
 
 
 
@@ -40,9 +42,10 @@ import * as levelUp from './sounds/new_level.mp3';
 class Game {
     constructor () {
         this.player = null;
+        this.score = 0;
         this.monster = {};
         this.level = 1;
-        this.bindedClearModal = this.clearModal.bind(this)
+        this.bindedClearModal = this.clearModal.bind(this);
     }
 
     addModalWindow () {
@@ -75,7 +78,6 @@ class Game {
 
         let button_play = document.querySelector('.button__play');
         button_play.addEventListener('click', () => {this.start_game()})
-       
     }
 
     start_game() {
@@ -98,10 +100,9 @@ class Game {
 
         let weapon=document.querySelector(".weapon_container");
         weapon.addEventListener("click", (e) => {this.choose_weapon(e)});
-
+        
         this.add_player();
         this.add_monster();
-    
     }
 
     choose_weapon(e) {
@@ -126,11 +127,9 @@ class Game {
 
 
     show_task_bar () {
-        
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = task_bar;
-        
 
         let task__bar_elem=document.querySelector(".task__bar");
         task__bar_elem.addEventListener('click', (e) => {
@@ -149,7 +148,9 @@ class Game {
             }else if (e.target.classList.contains("listening_ru"))
             { this.showRuAudio()
             }else if (e.target.classList.contains("write_word"))
-            { this.showWritePicture()
+            { this.showWritePictureEng()
+            }else if (e.target.classList.contains("write_word_ru"))
+            { this.showWritePictureRu()
             }
         });
        
@@ -208,6 +209,15 @@ class Game {
         }else if (this.player.weapon=="light") {
             battleJS.lightning_hit();
         }
+        this.add_points();
+    }
+
+    add_points() {
+        this.score += 20;
+        document.querySelector(".coin_score").innerHTML = this.score;
+        let coin=document.querySelector(".coin_container");
+        coin.classList.add("animated");
+        setTimeout(()=>{coin.classList.remove("animated")}, 2000)
     }
 
     change_player_health() {
@@ -225,8 +235,6 @@ class Game {
         this.monster.health -= +num;
         document.querySelector(".monster_health").innerHTML = this.monster.health;
         document.querySelector(".monster_health").style.width = this.monster.health * 3 + "px";
-        
-        
         
         if(this.monster.health<=0) {
             setTimeout(()=>{
@@ -266,48 +274,43 @@ class Game {
         let modalwindow = document.querySelector('.modal-body');
         document.querySelector(".weapon_container").style.display="none";
         document.querySelector(".fight_button").style.display="none";
-
         modalwindow.innerHTML = gameOverHtml;
-
         let play_again=document.querySelector(".play_again");
+        let score_button=document.querySelector(".play_again");
         play_again.addEventListener("click", () => {window.location.reload()});
+        score_button.addEventListener("click", () => {this.add_score()});
        
-
-        // записываются данные игрока localStorage построить таблицу: name level
-        // появляется экран game over и кнопка see score
     }
 
     add_score () {
-        // из localStorage построить таблицу: name level
+        alert("скоро будет")
+        // this.addModalWindow();
+        // let modalwindow = document.querySelector('.modal-body');
+        // modalwindow.innerHTML = scoreHtml;
+        // scoreJs.show_score(this.bindedClearModal);
+
     }
 
     showMathTask(){
-       
         this.addModalWindow();
-        
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = mathTaskHtml;
-
         mathTaskJs.mathTask(this.level, this.bindedClearModal);
     }
 
     showEngRuTranslate() {
         this.addModalWindow();
-        
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = translateEngToRus;
-
         tranclateEngRu.translateEngToRusTask(this.level, this.bindedClearModal);
     }
     
 
     showRuEngTranslate () {
-    this.addModalWindow();
-        
-   let modalwindow = document.querySelector('.modal-body');
-    modalwindow.innerHTML = translateRusToEngHtml;
-
-    translateRusToEngJs.translateRusToEngTask(this.level, this.bindedClearModal);
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = translateRusToEngHtml;
+        translateRusToEngJs.translateRusToEngTask(this.level, this.bindedClearModal);
     }
 
 
@@ -315,22 +318,21 @@ class Game {
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = audioEngToRusHtml;
-
         audioEngToRus.audioEngToRus(this.level, this.bindedClearModal);
     }
 
     showRuEngAudio() {
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
-        modalwindow.innerHTML = audioRuToRngsHtml;
-        audioRuToEngJs.audioEngToRusTask(this.level, this.bindedClearModal);
+        modalwindow.innerHTML = audioRuToEngsHtml;
+        audioRuToEngJs.audioRusToEng(this.level, this.bindedClearModal);
     }
 
     showEngAudio() {
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = audioEngHtml;
-        audioEngJs.translateEngToEng(this.level, this.bindedClearModal);
+        audioEngJs.audioEngToEng(this.level, this.bindedClearModal);
     }
 
     showRuAudio() {
@@ -340,12 +342,20 @@ class Game {
         audioRuJs.audioRusToRusTask(this.level, this.bindedClearModal);
     }
 
-    showWritePicture() {
+    showWritePictureEng() {
         this.addModalWindow();
         let modalwindow = document.querySelector('.modal-body');
         modalwindow.innerHTML = pictureTaskEng;
-        pictureTaskEngJs.pictureTask(this.level, this.bindedClearModal);
+        pictureTaskEngJs.pictureTaskEng(this.level, this.bindedClearModal);
     }
+
+    showWritePictureRu() {
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = pictureTaskRu;
+        pictureTaskRuJs.pictureTaskRus(this.level, this.bindedClearModal);
+    }
+
 
 }
 let game = new Game();

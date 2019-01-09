@@ -28,7 +28,7 @@ export function mathTask (level, clear_modal) {
     let input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)})
-    inputEnter(input);
+    inputEnter();
 
     function inputEnter() {
         input.addEventListener('keypress', function(event){
@@ -37,9 +37,10 @@ export function mathTask (level, clear_modal) {
           }
       });
     }
+
 }
 
-export function resultOfQuestion(answer, clear_modal) {
+function resultOfQuestion(answer, clear_modal) {
     let correctResult = eval(mathExpressionLevel); // правильный результат
     if (answer == correctResult) {
         document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
@@ -58,8 +59,3 @@ export function resultOfQuestion(answer, clear_modal) {
         //действие монстра
     }
 }
-<<<<<<< HEAD
-
-=======
-}
->>>>>>> 049b939e981c3a663fd4d324181deca2629e9cc1

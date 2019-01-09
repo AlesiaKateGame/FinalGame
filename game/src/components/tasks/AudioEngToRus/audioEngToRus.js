@@ -5,7 +5,7 @@ import jsonFile4 from './WordAudioEngToRus/wordAudioEngToRus4.json';
 import jsonFile5 from './WordAudioEngToRus/wordAudioEngToRus5.json';
 
 import allSaunds from '../assets/importSoundEngToRus.js';
-import {getRandomInArray,inputEnter} from '../MathTask/MathJS/commonFunctions';
+import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
 let array;
@@ -20,7 +20,7 @@ function jsonFunc (jsonFile) {
     randomWordSound = randomObject['source'];
 }
 
-export function audioEngToRusTask (level, clear_modal) {
+export function audioEngToRus (level, clear_modal) {
     
     if (level === 1) {
         jsonFunc(jsonFile1);
@@ -43,11 +43,20 @@ export function audioEngToRusTask (level, clear_modal) {
     const audio = document.querySelector('#audio');
     audio.src = randomWordSound;
 
-    const input = document.querySelector('#task-Level__input');
+    let input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-    inputEnter(input);
+    inputEnter();
+
+    function inputEnter() {
+        input.addEventListener('keypress', function(event){
+          if (event.code === "Enter") {
+              resultOfQuestion(input.value, clear_modal);
+          }
+      });
+    }
 }
+
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {
         return option.toLowerCase() == answer.toLowerCase();

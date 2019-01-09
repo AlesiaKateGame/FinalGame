@@ -4,7 +4,7 @@ import jsonFile3 from './WordPictureTaskRus/wordPictureTaskRus3.json';
 import jsonFile4 from './WordPictureTaskRus/wordPictureTaskRus4.json';
 import jsonFile5 from './WordPictureTaskRus/wordPictureTaskRus5.json';
 
-import allPictures from './importAllPictures.js';
+
 import {getRandomInArray, inputEnter} from '../MathTask/MathJS/commonFunctions';
 import * as vars from '../MathTask/MathJS/commonVariables';
 
@@ -43,7 +43,15 @@ export function pictureTaskRus (level, clear_modal) {
     const input = document.querySelector('#task-Level__input');
     let answer_button = document.querySelector('.task-Level__answer');
     answer_button.addEventListener('click', ()=>{resultOfQuestion(input.value, clear_modal)});
-    inputEnter(input);
+    inputEnter();
+
+    function inputEnter() {
+        input.addEventListener('keypress', function(event){
+          if (event.code === "Enter") {
+              resultOfQuestion(input.value, clear_modal);
+          }
+      });
+    }
 }
 export function resultOfQuestion(answer, clear_modal) {
     function isCorrect(option) {
@@ -52,7 +60,7 @@ export function resultOfQuestion(answer, clear_modal) {
      // правильный результат
 
     if (randomWord.some(isCorrect)) {
-        document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomCongratulationTitle+"</h1>";
+        document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
         aplodisment.play();
         localStorage.setItem('answerState', true);
@@ -60,7 +68,7 @@ export function resultOfQuestion(answer, clear_modal) {
         //дейстие игрока
 
     } else {
-        document.querySelector('.modal-body').innerHTML="<h1>"+vars.randomMistakeTitle+"</h1>";
+        document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomMistakeTitle+"</h4>";
         let soundluse=new Audio('sounds/dissapoinment_shot.mp3');
         soundluse.play();
         localStorage.setItem('answerState', false);
