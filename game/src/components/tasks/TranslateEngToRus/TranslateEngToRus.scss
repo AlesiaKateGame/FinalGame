@@ -1,0 +1,59 @@
+
+@font-face {
+    font-family: "Chinese"; 
+    src: url("../screens/landing/fonts/Chinese.otf")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+h1, h2, h3{
+    text-align: center;
+}
+
+#section {
+    display: grid;
+    width: 50%;
+    height: 35%;
+    padding: 1%;
+    position: fixed;
+    top: 30%;
+    right: 20%;
+    background-color: #FFE4C4;
+    border: 30px solid  #FFE4C4;
+    background-clip: border-box;
+    border-image-slice: 196 220 213 216; 
+    border-image-width: 20px 20px 20px 20px; 
+    border-image-outset: 0px 0px 0px 0px; 
+    border-image-repeat: round round;
+    border-image-source: url("../components/tasks/assets/frame.png");
+}
+#task-Level__input {
+    width: 90%;
+    height: 40%;
+    border: 1px solid grey;
+    border-radius: 3px;
+    outline: none;
+    margin: 5%;
+
+}
+#button {
+    height: 85%;
+    width: 45%;
+    border-radius: 5px;
+    outline: none;
+    background: rgb(214, 99, 99);
+    color : white;
+    margin: 2% 27%;
+}
+
+.translate_word {
+color: rgb(214, 99, 99);
+font-family: Chinese, Arial, Helvetica, sans-serif;
+}
+
+#audio {
+    margin: 5px auto;
+}

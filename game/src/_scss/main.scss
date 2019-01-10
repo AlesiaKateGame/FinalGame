@@ -1,2 +1,16 @@
 @import  "../screens/home/home.scss";
-@import  "../components/login/login.scss";
+@import  "../components/login/loginStyle.scss";
+@import  "../components/player/playerStyle.scss";
+@import  "../components/monster/monsterStyle.scss";
+@import  "../components/tasks/MathTask/math.scss";
+@import  "../components/task_bar/task_barStyle.scss";
+@import  "../components/game_over/game_overStyle.scss";
+@import  "../components/new_level/new_levelStyle.scss";
+@import  "../components/preloader/preloaderStyle.scss";
+@import  "../components/tasks/TranslateEngToRus/TranslateEngToRus.scss";
+@import  "../components/tasks/AudioEngToRus/audioEngToRus.scss";
+@import  "../components/tasks/AudioRusToEng/audioRusToEng.scss";
+@import  "../components/tasks/TranslateRusToEng/translateRusToEng.scss";
+@import  "../screens/landing/landing.scss";
+@import  "../components/tasks/PictureTaskEng/pictureTaskEng.scss";
+@import  "../components/score/score.scss";

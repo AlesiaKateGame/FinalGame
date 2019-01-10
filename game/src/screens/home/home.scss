@@ -1,12 +1,44 @@
+
+@font-face {
+    font-family: "Chinese"; 
+    src: url("../screens/landing/fonts/Chinese.otf")
+}
+
 * {
     padding: 0;
     margin: 0;
 }
 
-body, html {
+html {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+}
+body {
+    width: 100%;
+    height: 100%;
+    &.game {
+        overflow: hidden;
+        background-image: unset;
+        background-color: #555;
+        transition: all 0.5s;
+
+        &.loaded {
+            background-color: #82addb;
+        }
+    }
+
+    .modal-body {
+        position: relative;
+        width: 100%;
+        height: 65%;
+
+        #task-level {
+            height: unset;
+          
+        }
+    }
+    
+    
     .sky {
         position: absolute;
         background: linear-gradient(to bottom, #82addb 0%,#ebb2b1 100%); 
@@ -45,6 +77,51 @@ body, html {
         background-repeat: no-repeat;
         background-position: left bottom;
     }
+
+    .level {
+        position: relative;
+        background-image: url("../screens/home/img/level_board.png");
+        height: 400px;
+        width: 300px; 
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        font-weight: bold;
+        display: none;
+        .level-number {
+            margin: 0 auto;
+            width: 50px;
+            height: 55px;
+            bottom: 56%;
+            font-weight: bold;
+            left: 40%;
+            position: absolute;
+            color: #60300c;
+            text-align: center;
+            font-size: 61px;
+
+        }
+    }
+    .scene_container {
+        display: flex;
+        justify-content: space-around;
+        width: 105%;
+        position: absolute;
+        top: 55%;
+    }
+
+    .scene_container-player {
+        position: relative;
+        width: 240px;
+        height: 375px;
+    }
+
+    .scene_container-monster {
+    width: 250px;
+    height: 375px;
+    position: relative;
+    margin-top: -5%;
+    }
     
     .ground {
         position: absolute;
@@ -54,6 +131,191 @@ body, html {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: left bottom;
+    }
+
+    .monster_inform {
+        position: absolute;
+        left: 64%;
+        top: 3%;
+        display: none;
+        .inner_border {
+            border: 8px solid #ce7146;
+            width: 310px;
+            border-radius: 50px;
+            height: 30px;
+            box-shadow: 0px 7px 1px 0px rgba(74,35,18,1);
+            .bottom_border {
+                width: 310px;
+                height: 31px;
+                background-color: #7a2e14;
+                border-radius: 25px;
+              
+            }
+        
+        }
+        .monster_health {
+            width: 300px;
+            height: 20px;
+            background: linear-gradient(to bottom,
+            rgba(246,253,251,1) 0%, rgba(167,245,0,1) 38%,
+            rgba(108,133,20,1) 74%, rgba(78,87,7,1) 100%);
+            color: black;
+            border-radius: 20px;
+            padding: 6px;
+            font-weight: bold;
+            transition: width 1s;
+            box-shadow: 0px 4px 1px 0px rgb(131, 67, 40) inset;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
+        }
+        
+        .monster_name {
+            font-size: 26px;
+            margin: 5%;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
+            color: #f1185c
+        }
+    }
+
+    .player_inform {
+        position: absolute;
+        top: 3%;
+        left: 25%;
+        display: none;
+        .inner_border {
+            border: 8px solid #ce7146;
+            width: 310px;
+            border-radius: 50px;
+            height: 30px;
+            box-shadow: 0px 7px 1px 0px rgba(74,35,18,1);
+            .bottom_border {
+                width: 310px;
+                height: 31px;
+                background-color: #7a2e14;
+                border-radius: 25px;
+            }
+        
+        }
+        
+        .player_health {
+            width: 300px;
+            height: 20px;
+            background: linear-gradient(to bottom,
+            rgba(246,253,251,1) 0%, rgba(167,245,0,1) 38%,
+            rgba(108,133,20,1) 74%, rgba(78,87,7,1) 100%);
+            color: black;
+            border-radius: 20px;
+            padding: 6px;
+            font-weight: bold;
+            transition: width 1s;
+            box-shadow: 0px 4px 1px 0px rgb(131, 67, 40) inset;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
+        
+        }
+
+        .player_name {
+            font-size: 26px;
+            margin: 5%;
+            font-family: Chinese, Arial, Helvetica, sans-serif;
+            color: #f1185c
+        }
+
+        .coin_poits_container {
+            display: flex;
+            .coin_score {
+                font-family: Chinese, Arial, Helvetica, sans-serif;
+                padding: 11px 3px;
+                font-size: 20px;
+            } 
+            .coin_point {
+                background-image: url("../components/score/img/coin_pint.png");
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin: 13px;
+            }
+        }
+    }
+    
+    .fight_button {
+       background-image:  url("../screens/home/img/attack_button.png");
+        position: absolute;
+        top: 45%;
+        left: calc(50% - 195px);
+        display: none;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 370px;
+        height: 170px;
+        cursor: pointer;
+        z-index: 5000px;
+        transition: 0.5s;
+    }
+     
+
+    .fight_button:hover{
+        transform: scale(0.95, 0.95);
+        
+    }
+
+    .weapon_container {
+        position: absolute;
+        display: none;
+        bottom: 15%;
+        left: calc(50% - 175px);
+        width: 350px;
+        justify-content: space-between;
+        z-index: 100;
+        .weapon_container-fire {
+            background-image: url("../components/battle/img/fire.png");
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            &.press {
+                opacity: 1;
+                box-shadow: 0 0 6px 3px #FFF;
+                border-radius: 50%;
+            } 
+        }
+        .weapon_container-fire:hover {
+            transform: scale(1.1, 1.1)
+        }
+        .weapon_container-light {
+            background-image: url("../components/battle/img/lightning.png");
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            &.press{
+                opacity: 1;
+                box-shadow: 0 0 6px 3px #FFF;
+                border-radius: 50%;
+            } 
+        }
+        .weapon_container-light:hover {
+            transform: scale(1.1, 1.1)
+        }
+        
+
+        .weapon_container-poison {
+            background-image: url("../components/battle/img/poison.png");
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            &.press {
+                opacity: 1;
+                box-shadow: 0 0 6px 3px #FFF;
+                border-radius: 50%;
+            } 
+        }
+        .weapon_container-poison:hover {
+            transform: scale(1.1, 1.1)
+        }
     }
     
     .clouds {
@@ -107,7 +369,72 @@ body, html {
         0% {right: -500px}
         100% {right: 100%}
     }
+
+    .coin_container {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 10%;
+        visibility: hidden;
+        
+
+        .coin_img {
+            background-image: url("../components/score/img/coin.png");
+            height: 98px;
+            width: 100px;
+            animation: coin 1s linear infinite;
+             
+        }
+        &.animated {
+            animation: coin_container 2s linear 1 forwards;
+        }   
+    }
 }
 
+@keyframes coin_container {
+    0% {opacity: 1;
+        top: 0;
+        visibility: visible;}
+    100% {
+        visibility: hidden;
+        top: -200px;
+        opacity: 0;}
+}
+
+@keyframes coin {
+    0% {background-position-x: 0}
+    9.999% {background-position-x: 0}
+    10% {background-position-x: -100px}
+    19.999% {background-position-x: -100px}
+    20% {background-position-x: -200px}
+    29.999% {background-position-x: -200px}
+    30% {background-position-x: -300px}
+    39.999% {background-position-x: -300px}
+    40% {background-position-x: -400px}
+    49.999% {background-position-x: -400px}
+    50% {background-position-x: -500px}
+    59.999% {background-position-x: -500px}
+    60% {background-position-x: -600px}
+    69.999% {background-position-x: -600px}
+    70% {background-position-x: -700px}
+    79.999% {background-position-x: -700px}
+    80% {background-position-x: -800px}
+    89.999% {background-position-x: -800px}
+    90% {background-position-x: -900px}
+    100% {background-position-x: -900px}
+}
+
+.preload_images {
+    position: absolute;
+    top: 0;
+    left: 10000px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+
+    * {
+        position: absolute;
+    }
+}
 
   
