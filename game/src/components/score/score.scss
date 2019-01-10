@@ -1,0 +1,58 @@
+
+@font-face {
+    font-family: "Chinese"; 
+    src: url("../screens/landing/fonts/Chinese.otf")
+}
+
+.high_score {
+    background-image: url("../components/score/img/score_table.png");
+    width: 415px;
+    height: 840px;
+    left: 40%;
+    position: absolute;
+    background-size: contain;
+}
+
+.hi_score_table {
+    position: relative;
+    width: 315px;
+    height: 731px;
+    left: calc(50% - 70px);
+    top: 16%;
+}
+
+.hi_score_table div {
+    display: flex;
+    height: 39px;
+    width: 250px;
+    justify-content: space-between;
+    margin-bottom: 26px;
+
+    
+    div {
+        text-transform: capitalize;
+        overflow: hidden;
+        font-size: 28px;
+        color: #4d2b01;
+        font-family: Chinese, Arial, Helvetica, sans-serif;
+    }
+
+}
+
+.reload_score {
+    background-image: url("../components/score/img/reload_game.png");
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 9%;
+    left: -30%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.reload_score:hover {
+    transform: scale(1.1)
+}
+
+

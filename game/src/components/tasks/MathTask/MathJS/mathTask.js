@@ -59,7 +59,4 @@ function resultOfQuestion(answer, clear_modal) {
         //действие монстра
     }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 6910e4e1c92f6265ff95a41cc3334dc01a3f6b11

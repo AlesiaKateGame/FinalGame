@@ -105,9 +105,9 @@ body {
     .scene_container {
         display: flex;
         justify-content: space-around;
-        width: 100%;
+        width: 105%;
         position: absolute;
-        top: 60%;
+        top: 55%;
     }
 
     .scene_container-player {
@@ -241,7 +241,7 @@ body {
        background-image:  url("../screens/home/img/attack_button.png");
         position: absolute;
         top: 45%;
-        left: 38%;
+        left: calc(50% - 195px);
         display: none;
         background-size: contain;
         background-repeat: no-repeat;
@@ -262,7 +262,7 @@ body {
         position: absolute;
         display: none;
         bottom: 15%;
-        left: 35%;
+        left: calc(50% - 175px);
         width: 350px;
         justify-content: space-between;
         z-index: 100;

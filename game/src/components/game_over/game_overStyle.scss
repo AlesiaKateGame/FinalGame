@@ -6,14 +6,14 @@
     background-repeat: no-repeat;
     position: absolute;
     margin: 0 auto;
-    top: 10%;
+    top: 3%;
     left: calc(50% - 325px);
 
 }
 
 .game_over_bg {
     width: 1000px;
-    height: 1000px;
+    height: 825px;
     background-color: rgba($color: #666464, $alpha: 0.8);
     margin: 0 auto;
 }
@@ -26,12 +26,12 @@
     background-repeat: no-repeat;
     position: absolute;
     left: calc(50% - 150px);
-    top: 100%;
+    bottom: -3vw;
     cursor: pointer;
 }
-// .play_again:hover {
-//     transform: scale(1.1)
-// }
+.play_again:hover {
+    transform: scale(1.1)
+ }
 
 
 .score_button {
@@ -42,12 +42,12 @@
     background-repeat: no-repeat;
     position: absolute;
     left: calc(50% - 150px);
-    top: 160%;
+    bottom: -11vw;
     cursor: pointer;
     
 }
 
-// .score_button:hover {
-//     transform: scale(1.1)
-// }
+.score_button:hover {
+     transform: scale(1.1)
+}
 

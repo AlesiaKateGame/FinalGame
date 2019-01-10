@@ -144,6 +144,34 @@
 
 
 
+.scene_container-monster.attack {
+    animation: monster_attack 2s linear 1;
+}
+
+.scene_container-monster.attack .monster_hand_left,
+.scene_container-monster.attack .monster_hand_right{
+   animation: monster_attack_hands 2s linear 1;
+ }
+
+@keyframes monster_attack {
+    0% {top: 30%; right: 0%}
+    25% {top: 20%; right: 20%}
+    45% {top: 30%; right: 42%;}
+    55% {top: 30%; right: 42%;}
+    75% {top: 20%; right: 20%}
+    100% {top: 30%; right: 0%}
+}
+
+@keyframes monster_attack_hands {
+    0% {transform: rotate(0deg)}
+    25% {transform: rotate(135deg)}
+    45% {transform: rotate(60deg)}
+    55% {transform: rotate(60deg)}
+    75% {transform: rotate(30deg)}
+    100% {transform: rotate(0deg)}
+}
+
+
 
 .fire_ball {
     background-image: url("../components/battle/img/fire_ball.png");
@@ -257,7 +285,6 @@
 .light_ball.animated {
     display: block;
     animation: light_ball_magick .3s linear  1;
-    //animation-fill-mode: forwards;
 }
 
 .light_explosion {
@@ -275,7 +302,6 @@
 .light_explosion.animated {
     display: block;
     animation: light_ball_expl 1s linear 1;
-    //animation-fill-mode: forwards;
 }
 
 @keyframes light_ball_expl {
@@ -310,3 +336,5 @@
     75% {opacity: 1;}
     100% {opacity: 0;}
 }
+
+

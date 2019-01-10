@@ -36,9 +36,6 @@ import * as lendingjs from './screens/landing/landing.js';
 import * as levelUp from './sounds/new_level.mp3';
 import * as scoreJs from './components/score/score.js';
 
-
-
-
 class Game {
     constructor () {
         this.player = null;
@@ -57,7 +54,6 @@ class Game {
     }
 
     show_login () {
-        
         this.addModalWindow();
         
         let modalwindow = document.querySelector('.modal-body');
@@ -77,7 +73,10 @@ class Game {
         }
 
         let button_play = document.querySelector('.button__play');
+        let show_score = document.querySelector('.show_score');
+
         button_play.addEventListener('click', () => {this.start_game()})
+        show_score.addEventListener('click', () => {this.add_score()})
     }
 
     start_game() {
@@ -85,8 +84,14 @@ class Game {
         let fight_button = document.querySelector('.fight_button');
         document.querySelector('.level').style.display="block";
         
+        let player_name =modalwindow.querySelector('#input__container-input').value
+        if (player_name.length > 7) {
+            player_name=player_name.slice(0, 7);
+            player_name += '...';
+        }
+
         if(modalwindow.querySelector('#input__container-input').value != ''){
-            localStorage.setItem('currentPlayer', modalwindow.querySelector('#input__container-input').value)
+            localStorage.setItem('currentPlayer', player_name)
         } else {
             modalwindow.querySelector('.warning').style.display = "block";
         }
@@ -174,7 +179,6 @@ class Game {
             "gender": localStorage.getItem('currentGender') || 'boy',
             "weapon": "fire",
         }
-
         let scene_player=document.querySelector('.scene_container-player');
         scene_player.innerHTML=playerHtml;
         choose_player.choose_player(this.player.name);
@@ -191,12 +195,15 @@ class Game {
             }
         }, 2000);
         console.log(localStorage.getItem('answerState'))
-        
     }
 
     monster_hit() {
         document.querySelector(".weapon_container").style.display="flex";
         this.change_player_health();
+        let monster=document.querySelector(".scene_container-monster");
+        monster.classList.remove("start");
+        monster.classList.add("attack");
+        setTimeout (function () {monster.classList.remove("attack")}, 2100 )
     }
 
     player_hit() {
@@ -244,7 +251,6 @@ class Game {
                 let scene_monster=document.querySelector('.scene_container-monster');
                 scene_monster.classList.remove("start");
                 this.add_level();
-
             },2700);
         }
     }
@@ -261,11 +267,9 @@ class Game {
         levelUp.play();
         setTimeout(() => { 
             modalwindow.replaceWith();
-            
             this.add_monster();
             document.querySelector(".weapon_container").style.display="flex";
             document.querySelector(".monster_health").style.width="flex";
-
         }, 2500);
     }
 
@@ -276,19 +280,22 @@ class Game {
         document.querySelector(".fight_button").style.display="none";
         modalwindow.innerHTML = gameOverHtml;
         let play_again=document.querySelector(".play_again");
-        let score_button=document.querySelector(".play_again");
+        let score_button=document.querySelector(".score_button");
         play_again.addEventListener("click", () => {window.location.reload()});
         score_button.addEventListener("click", () => {this.add_score()});
-       
     }
 
     add_score () {
-        alert("скоро будет")
-        // this.addModalWindow();
-        // let modalwindow = document.querySelector('.modal-body');
-        // modalwindow.innerHTML = scoreHtml;
-        // scoreJs.show_score(this.bindedClearModal);
-
+        this.addModalWindow();
+        let modalwindow = document.querySelector('.modal-body');
+        modalwindow.innerHTML = scoreHtml;
+        scoreJs.show_score(this.bindedClearModal);
+        document.querySelector(".scene_container").style.display="none";
+        document.querySelector(".player_inform").style.display="none";
+        document.querySelector(".monster_inform").style.display="none";
+        document.querySelector(".level").style.display="none";
+        let reload_score=document.querySelector(".reload_score")
+        reload_score.addEventListener("click", () => {window.location.reload() ()});
     }
 
     showMathTask(){
