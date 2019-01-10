@@ -73,10 +73,30 @@ class Game {
         }
 
         let button_play = document.querySelector('.button__play');
-        let show_score = document.querySelector('.show_score');
+        let score = document.querySelector('.show_score');
 
-        button_play.addEventListener('click', () => {this.start_game()})
-        show_score.addEventListener('click', () => {this.add_score()})
+        button_play.addEventListener('click', () => {this.start_game()});
+
+        score.addEventListener('click', () => {
+            this.addModalWindow();
+            let modalwindow = document.querySelector('.modal-body');
+            modalwindow.innerHTML = scoreHtml;
+            let hi_score_table=document.querySelector(".hi_score_table");
+            hi_score_table.style.display = "block";
+            let reload_score=document.querySelector(".reload_score");
+            reload_score.addEventListener("click", () => {window.location.reload() });
+            
+            let score_result=JSON.parse(localStorage.getItem("allPlayer_score"));
+            if (score_result) {
+                score_result.sort(function(a,b){
+                    return b[1] - a[1]
+                });
+                for (let i=0; i<score_result.length &&  i<10; i++) {
+                    hi_score_table.innerHTML += "<div> <div>"+ score_result[i][0] + "</div> <div>" + score_result[i][1] + "</div> </div>" 
+                }
+              
+            }
+        });
     }
 
     start_game() {
@@ -84,18 +104,15 @@ class Game {
         let fight_button = document.querySelector('.fight_button');
         document.querySelector('.level').style.display="block";
         
-        let player_name =modalwindow.querySelector('#input__container-input').value
-        if (player_name.length > 7) {
-            player_name=player_name.slice(0, 7);
-            player_name += '...';
-        }
-
-        if(modalwindow.querySelector('#input__container-input').value != ''){
-            localStorage.setItem('currentPlayer', player_name)
+        // let player_name =modalwindow.querySelector('#input__container-input').value
+       
+        if(modalwindow.querySelector('#input__container-input').value != '') {
+            localStorage.setItem('currentPlayer', modalwindow.querySelector('#input__container-input').value)
         } else {
-            modalwindow.querySelector('.warning').style.display = "block";
+            localStorage.setItem('currentPlayer', "UNNAMED")
         }
 
+        
         fight_button.addEventListener('click', () => { 
             document.querySelector(".weapon_container").style.display="none";
             this.show_task_bar()});
@@ -174,7 +191,7 @@ class Game {
     
     add_player() {
         this.player = {
-            "name": localStorage.getItem('currentPlayer')|| "PLAYER",
+            "name": localStorage.getItem('currentPlayer') || "UNNAMED",
             "health": 100,
             "gender": localStorage.getItem('currentGender') || 'boy',
             "weapon": "fire",
@@ -295,7 +312,7 @@ class Game {
         document.querySelector(".monster_inform").style.display="none";
         document.querySelector(".level").style.display="none";
         let reload_score=document.querySelector(".reload_score")
-        reload_score.addEventListener("click", () => {window.location.reload() ()});
+        reload_score.addEventListener("click", () => {window.location.reload()});
     }
 
     showMathTask(){

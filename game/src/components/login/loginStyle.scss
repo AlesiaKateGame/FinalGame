@@ -21,7 +21,7 @@
         background-repeat: no-repeat;
         background-position: center;
         .hero__container {
-            top: 40%;
+            top: 43%;
             right: 19%;
             display: flex;
             justify-content: space-around;
@@ -97,6 +97,9 @@
                 text-transform: uppercase;
                 width: 100%;
             }
+            #input__container-input:required {
+                background-color:#9d5654;
+            }
 
             #input__container-input:focus{
                 outline:none;
@@ -132,8 +135,8 @@
         background-size: contain;
         background-repeat: no-repeat;
         cursor: pointer;
-        top: 6%;
-        left: 5%;
+            top: 6%;
+            left: 5%;
     }
     .show_score:hover {
         transform: scale(1.1)
