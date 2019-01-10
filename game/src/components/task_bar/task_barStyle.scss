@@ -1,9 +1,9 @@
 .task__bar {
     position: absolute;
     top: 30%;
-    left: 30%;
-    width: 34%;
-    height: 95%;
+    left: calc(50% - 207px);
+    //width: 34%;
+    //height: 95%;
     background-color: #494f5b;
     border-radius: 20px;
 
