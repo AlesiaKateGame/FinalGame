@@ -39,15 +39,6 @@ module.exports = {
           },
         }],
       },
-      // {
-      //   test: /\.(otf|ttf)$/i,
-      //   use: [{
-      //     loader: 'file-loader',
-      //     options: {
-      //       name: './fonts/[name].[ext]',
-      //     },
-      //   }],
-      // },
       {
         test: /\.(woff(2)?|ttf|otf|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
@@ -84,11 +75,6 @@ module.exports = {
       }
     ]
   },
-  
-  // resolve: {
-  //   modules: [path.resolve(__dirname, './src'), 'node_modules'],
-  //    extentions: [".js", ".jsx", ".json"]
-  // },
   plugins: [
     new HtmlWebPackPlugin({
       template: "src/index.html",
@@ -98,7 +84,7 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
-    // new AudioSpritePlugin()
+  
   ],
   
 };

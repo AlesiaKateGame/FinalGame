@@ -64,7 +64,7 @@ export function resultOfQuestion(answer, clear_modal) {
      // правильный результат
 
     if (randomWord.some(isCorrect)) {
-        document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomCongratulationTitle+"</h4>";
+        document.querySelector('.modal-body').innerHTML="<h4>" + vars.congratulationTitleArray[getRandomInArray(vars.congratulationTitleArray)] + "</h4>";
         let aplodisment=new Audio('sounds/aplodismenty_shot.mp3');
         aplodisment.play();
         localStorage.setItem('answerState', true);
@@ -72,7 +72,7 @@ export function resultOfQuestion(answer, clear_modal) {
         //дейстие игрока
 
     } else {
-        document.querySelector('.modal-body').innerHTML="<h4>"+vars.randomMistakeTitle+"</h4>";
+        document.querySelector('.modal-body').innerHTML="<h4>" + vars.mistakeTitleArray[getRandomInArray(vars.mistakeTitleArray)] + "</h4>";
         let soundluse=new Audio('sounds/dissapoinment_shot.mp3');
         soundluse.play();
         localStorage.setItem('answerState', false);

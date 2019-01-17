@@ -39,8 +39,8 @@ import * as scoreJs from './components/score/score.js';
 class Game {
     constructor () {
         this.player = null;
-        this.score = 0;
         this.monster = {};
+        this.score = 0;
         this.level = 1;
         this.bindedClearModal = this.clearModal.bind(this);
     }
@@ -104,8 +104,6 @@ class Game {
         let fight_button = document.querySelector('.fight_button');
         document.querySelector('.level').style.display="block";
         
-        // let player_name =modalwindow.querySelector('#input__container-input').value
-       
         if(modalwindow.querySelector('#input__container-input').value != '') {
             localStorage.setItem('currentPlayer', modalwindow.querySelector('#input__container-input').value)
         } else {
@@ -211,7 +209,7 @@ class Game {
                 this.monster_hit(); 
             }
         }, 2000);
-        console.log(localStorage.getItem('answerState'))
+       
     }
 
     monster_hit() {
@@ -255,7 +253,6 @@ class Game {
     }
 
     change_monster_health(num) {
-        console.log(this.monster, this.monster.health);
         this.monster.health -= +num;
         document.querySelector(".monster_health").innerHTML = this.monster.health;
         document.querySelector(".monster_health").style.width = this.monster.health * 3 + "px";
